@@ -373,26 +373,43 @@ footer{border-top:1px solid var(--line);background:#fbfbfa}
 # HTML PRIMITIVES
 # ============================================================
 
-def nav_html(*, mode: Mode, current: str) -> str:
+def nav_html(
+  *,
+  mode: Mode,
+  current: str,
+  show_cost: bool = True,
+  show_howto: bool = True,
+  show_contact: bool = True,
+) -> str:
   def item(href: str, label: str, key: str) -> str:
     cur = ' aria-current="page"' if current == key else ""
     return f'<a href="{esc(href)}"{cur}>{esc(label)}</a>'
 
-  home = href_home(mode)
-  cost = href_cost_index(mode)
-  howto = href_howto_index(mode)
-  contact = href_contact(mode)
+  parts: list[str] = []
+  parts.append(item(href_home(mode), "Home", "home"))
 
-  return (
-    '<nav class="nav" aria-label="Primary navigation">'
-    + item(home, "Home", "home")
-    + item(cost, "Cost", "cost")
-    + item(howto, "How-To", "howto")
-    + f'<a class="btn" href="{esc(contact)}">{esc(CONFIG.cta_text)}</a>'
-    + "</nav>"
-  )
+  if show_cost:
+    parts.append(item(href_cost_index(mode), "Cost", "cost"))
+  if show_howto:
+    parts.append(item(href_howto_index(mode), "How-To", "howto"))
 
-def base_html(*, mode: Mode, title: str, canonical: str, current_nav: str, body: str) -> str:
+  if show_contact:
+    parts.append(f'<a class="btn" href="{esc(href_contact(mode))}">{esc(CONFIG.cta_text)}</a>')
+
+  return '<nav class="nav" aria-label="Primary navigation">' + "".join(parts) + "</nav>"
+
+
+def base_html(
+  *,
+  mode: Mode,
+  title: str,
+  canonical: str,
+  current_nav: str,
+  body: str,
+  nav_show_cost: bool = True,
+  nav_show_howto: bool = True,
+  nav_show_contact: bool = True,
+) -> str:
   return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -408,13 +425,14 @@ def base_html(*, mode: Mode, title: str, canonical: str, current_nav: str, body:
   <div class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="{esc(href_home(mode))}">{esc(CONFIG.brand_name)}</a>
-      {nav_html(mode=mode, current=current_nav)}
+      {nav_html(mode=mode, current=current_nav, show_cost=nav_show_cost, show_howto=nav_show_howto, show_contact=nav_show_contact)}
     </div>
   </div>
 {body}
 </body>
 </html>
 """
+
 
 def header_block(*, h1: str, sub: str) -> str:
   return f"""
@@ -426,7 +444,7 @@ def header_block(*, h1: str, sub: str) -> str:
 </header>
 """.rstrip()
 
-def footer_block(*, mode: Mode, show_cta: bool = True) -> str:
+def footer_block(*, mode: Mode, show_cta: bool = True, show_cost: bool = True, show_howto: bool = True) -> str:
   cta_html = ""
   if show_cta:
     cta_html = f"""
@@ -436,6 +454,25 @@ def footer_block(*, mode: Mode, show_cta: bool = True) -> str:
       <a class="btn" href="{esc(href_contact(mode))}">{esc(CONFIG.cta_text)}</a>
     </div>
 """.rstrip()
+
+  links: list[str] = [f'<a href="{esc(href_home(mode))}">Home</a>']
+  if show_cost:
+    links.append(f'<a href="{esc(href_cost_index(mode))}">Cost</a>')
+  if show_howto:
+    links.append(f'<a href="{esc(href_howto_index(mode))}">How-To</a>')
+
+  return f"""
+<footer>
+  <div class="footer-inner">
+    {cta_html}
+    <div class="footer-links">
+      {''.join(links)}
+    </div>
+    <div class="small">© {esc(CONFIG.brand_name)}. All rights reserved.</div>
+  </div>
+</footer>
+""".rstrip()
+
 
   return f"""
 <footer>
@@ -451,7 +488,17 @@ def footer_block(*, mode: Mode, show_cta: bool = True) -> str:
 </footer>
 """.rstrip()
 
-def page_shell(*, h1: str, sub: str, inner_html: str, show_image: bool, show_footer_cta: bool, mode: Mode) -> str:
+def page_shell(
+  *,
+  h1: str,
+  sub: str,
+  inner_html: str,
+  show_image: bool,
+  show_footer_cta: bool,
+  mode: Mode,
+  footer_show_cost: bool = True,
+  footer_show_howto: bool = True,
+) -> str:
   img_html = ""
   if show_image:
     img_html = f"""
@@ -470,18 +517,46 @@ def page_shell(*, h1: str, sub: str, inner_html: str, show_image: bool, show_foo
   </section>
 </main>
 """
-    + footer_block(mode=mode, show_cta=show_footer_cta)
+    + footer_block(mode=mode, show_cta=show_footer_cta, show_cost=footer_show_cost, show_howto=footer_show_howto)
   ).rstrip()
 
-def make_page(*, mode: Mode, h1: str, canonical: str, nav_key: str, sub: str, inner: str, show_image: bool = True, show_footer_cta: bool = True) -> str:
+def make_page(
+  *,
+  mode: Mode,
+  h1: str,
+  canonical: str,
+  nav_key: str,
+  sub: str,
+  inner: str,
+  show_image: bool = True,
+  show_footer_cta: bool = True,
+  nav_show_cost: bool = True,
+  nav_show_howto: bool = True,
+  nav_show_contact: bool = True,
+  footer_show_cost: bool = True,
+  footer_show_howto: bool = True,
+) -> str:
   h1 = clamp_title(h1, 70)
   title = h1  # enforce title == h1
+
   return base_html(
     mode=mode,
     title=title,
     canonical=canonical,
     current_nav=nav_key,
-    body=page_shell(h1=h1, sub=sub, inner_html=inner, show_image=show_image, show_footer_cta=show_footer_cta, mode=mode),
+    nav_show_cost=nav_show_cost,
+    nav_show_howto=nav_show_howto,
+    nav_show_contact=nav_show_contact,
+    body=page_shell(
+      h1=h1,
+      sub=sub,
+      inner_html=inner,
+      show_image=show_image,
+      show_footer_cta=show_footer_cta,
+      mode=mode,
+      footer_show_cost=footer_show_cost,
+      footer_show_howto=footer_show_howto,
+    ),
   )
 
 def make_section(*, headings: tuple[str, ...], paras: tuple[str, ...], home_href: str) -> str:
@@ -880,12 +955,95 @@ def build_subdomain(*, out: Path) -> None:
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ subdomain: Generated {len(urls)} pages into: {out.resolve()}")
 
+def build_regular_city_only(*, out: Path) -> None:
+  """
+  regular_city_only:
+    - Generates / (homepage) + city pages /{city-st}/
+    - Does NOT generate /cost/ or /how-to/
+    - Navbar/Footer hide Cost + How-To
+    - Keeps Contact CTA (you can disable it too if you want)
+  """
+  mode: Mode = "regular_city_only"
+  urls: list[str] = ["/", "/contact/"]  # contact page still generated
+
+  # Homepage (keep the city grid; hide Cost/How-To nav + footer links)
+  write_text(
+    out / "index.html",
+    make_page(
+      mode=mode,
+      h1=CONFIG.h1_title,
+      canonical="/",
+      nav_key="home",
+      sub=CONFIG.h1_sub,
+      inner=(
+        make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+        + """
+<hr />
+<h2>Choose your city</h2>
+<p class="muted">We provide services nationwide, including in the following cities:</p>
+<ul class="city-grid">
+"""
+        + "\n".join(
+          f'<li><a href="{esc(href_city(mode, c, s))}">{esc(c)}, {esc(s)}</a></li>'
+          for c, s, _ in CITIES
+        )
+        + """
+</ul>
+"""
+      ),
+      nav_show_cost=False,
+      nav_show_howto=False,
+      footer_show_cost=False,
+      footer_show_howto=False,
+      show_footer_cta=True,   # keep CTA section
+      nav_show_contact=True,  # keep CTA button
+    ),
+  )
+
+  # Contact page (still useful since CTA exists)
+  write_text(
+    out / "contact" / "index.html",
+    contact_page_html(mode=mode),
+  )
+
+  # City pages (exact same content as your existing city_page_html; only nav/footer differ)
+  for city, st, col in CITIES:
+    slug = f"{slugify(city)}-{slugify(st)}"
+    write_text(
+      out / slug / "index.html",
+      make_page(
+        mode=mode,
+        h1=f"{CONFIG.h1_short} in {city}, {st}",
+        canonical=f"/{slug}/",
+        nav_key="home",
+        sub=CONFIG.h1_sub,
+        inner=(
+          location_cost_section(city, st, col, home_href=href_home(mode))
+          + "<hr />\n"
+          + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+        ),
+        nav_show_cost=False,
+        nav_show_howto=False,
+        footer_show_cost=False,
+        footer_show_howto=False,
+        show_footer_cta=True,
+        nav_show_contact=True,
+      ),
+    )
+    urls.append(f"/{slug}/")
+
+  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
+  write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
+  print(f"✅ regular_city_only: Generated {len(urls)} pages into: {out.resolve()}")
+
+
 # ============================================================
 # ENTRYPOINT
 # ============================================================
 
-SITE_MODE: Mode = "state"
-# "regular" | "cost" | "state" | "subdomain"
+SITE_MODE: Mode = "regular_city_only"
+# "regular" | "cost" | "state" | "subdomain" | "regular_city_only"
 
 def main() -> None:
   here = Path(__file__).resolve().parent
@@ -902,6 +1060,8 @@ def main() -> None:
     build_state(out=out)
   elif SITE_MODE == "subdomain":
     build_subdomain(out=out)
+  elif SITE_MODE == "regular_city_only":
+    build_regular_city_only(out=out)
   else:
     raise ValueError(f"Unknown SITE_MODE: {SITE_MODE!r}")
 
