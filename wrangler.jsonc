@@ -1,6 +1,6 @@
 {
   "name": "woodpecker-damage-repair",
-  "compatibility_date": "2026-01-17",
+  "compatibility_date": "2026-01-19",
   "assets": {
     "directory": "./public"
   }

@@ -24,6 +24,7 @@ from pathlib import Path
 import csv
 import html
 import os
+import sys
 import re
 import shutil
 
@@ -109,8 +110,8 @@ class SiteConfig:
   cta_href: str = "/contact/"
 
   # Pricing base
-  cost_low: int = 350
-  cost_high: int = 1500
+  cost_low: int = 300
+  cost_high: int = 800
 
   # Core titles/subs
   h1_title: str = "Woodpecker Damage Repair/Woodpecker Hole Repair/Siding Repair Services"
@@ -123,46 +124,205 @@ class SiteConfig:
   howto_title: str = "How Woodpecker Damage Repair Works"
   howto_sub: str = "A practical, homeowner-friendly guide to how repairs are typically done and when DIY breaks down."
 
+  about_blurb: tuple[str, ...] = (
+    "We focus on woodpecker damage repair for homeowners dealing with holes in siding, trim, and exterior wood. "
+    "Our work seals woodpecker holes, restores affected areas, and helps prevent moisture intrusion and repeat damage. "
+    "Get a fast quote and schedule service with a trusted local professional.",
+
+    "We provide woodpecker damage repair for homes with holes in siding, trim, and exterior wood surfaces. "
+    "Our repairs seal damaged areas, protect against moisture, and reduce the chance of repeat woodpecker activity. "
+    "Request a quick quote and connect with a local repair professional.",
+
+    "We offer professional woodpecker damage repair for homeowners facing holes in siding and exterior wood. "
+    "Our repairs restore damaged sections, seal woodpecker holes, and help protect your home from ongoing damage. "
+    "Get a fast estimate and book service with a reliable local pro.",
+  
+    "We specialize in repairing woodpecker damage on homes with holes in siding, trim, and exterior wood. "
+    "Our services seal woodpecker holes, restore damaged areas, and help protect your house from moisture and repeat issues. "
+    "Request a fast quote and work with a local professional you can trust.",
+  
+    "We help homeowners repair woodpecker damage by fixing holes in siding, trim, and exterior wood. "
+    "Our repairs seal damaged areas, restore the exterior, and reduce the risk of moisture and repeat woodpecker damage. "
+    "Get a quick quote and schedule service with a local professional."
+  )
+
+
   # Content (minimal placeholders; keep your real text here)
   main_h2: tuple[str, ...] = (
-    "What Is Woodpecker Damage Repair?",
+    "What Kind of Damage Do Woodpeckers Cause to a House?",
     "Why Are Woodpeckers Pecking My House?",
-    "When to Hire a Professional for Woodpecker Damage Repair",
+    "What Do Woodpecker Holes Look Like in Siding or Trim?",
+    "What Happens If Woodpecker Damage Is Left Unrepaired?",
+    "Does Woodpecker Activity on a House Mean Termites?",
+    "Is Woodpecker Damage Covered by Homeowners Insurance?",
+    "How Do You Keep Woodpeckers Off Your House After Repairs?",
   )
-  main_p: tuple[str, ...] = (
-    "Woodpecker damage repair seals and restores holes in siding and trim so the exterior is weather-tight again.",
-    "Woodpeckers peck to search for insects, create nesting cavities, or drum to mark territory.",
-    "Hire a pro when damage is widespread, ladder work is required, or finish matching matters.",
-  )
+
+  main_p: tuple[tuple[str, ...], ...] = (
+  (
+    "Woodpeckers commonly damage homes by boring holes into siding, trim, fascia, and corner boards, which can expose exterior surfaces to moisture and pests. Even minor holes can weaken exterior wood and cause paint or material breakdown when water repeatedly enters.",
+    "Woodpeckers typically peck houses to look for insects, form a nesting cavity, or drum against the surface to mark territory. Homes with exterior wood, shaded conditions, or existing damage are more likely to experience repeat activity if the cause isn’t addressed.",
+    "Woodpecker holes usually show up as round openings, tight clusters of small holes, or deeper cavities created by repeated pecking. The size and grouping often reveal whether the bird was briefly probing or engaging in ongoing nesting or feeding.",
+    "When woodpecker damage is left unrepaired, moisture can pass through the holes and slowly deteriorate nearby materials. Over time, this can lead to rot, peeling paint, and broader exterior damage that requires more extensive repairs.",
+    "Woodpecker activity doesn’t always indicate termites, but it can point to insects living in or near the wood. Since birds may be targeting ants or larvae, evaluating the wood before sealing holes helps avoid trapping a hidden issue.",
+    "Whether woodpecker damage is covered depends on how a homeowners insurance policy handles animal-related exterior damage. Some policies may cover sudden events, while others treat gradual damage as maintenance.",
+    "Preventing woodpeckers from returning after repairs usually means removing what attracted them and limiting future access. Treating insect problems, reinforcing repaired sections, and protecting exposed exterior wood can reduce repeat damage.",
+  ),
+  (
+    "Woodpeckers often damage houses by drilling into siding, trim, fascia, and corner boards, creating openings that allow moisture and pests inside. Even small holes can compromise exterior wood and lead to deterioration if water continues to enter.",
+    "Most woodpeckers peck homes while searching for insects, carving out nesting spaces, or drumming to claim territory. Properties with exterior wood, shade, or prior damage tend to attract repeated activity when the root cause isn’t resolved.",
+    "Damage from woodpeckers commonly appears as round holes, groups of small punctures, or deeper cavities formed over time. The pattern of the holes can indicate whether the bird was briefly investigating or repeatedly returning to the same area.",
+    "Ignoring woodpecker damage allows moisture to enter through the openings and gradually weaken surrounding materials. Over time, this exposure can cause rot, coating failure, and expanded damage that requires larger repairs.",
+    "Seeing woodpecker damage doesn’t necessarily mean termites are present, but it may signal insects in the wood. Because birds often hunt ants or larvae, checking the wood’s condition before sealing holes is important.",
+    "Insurance coverage for woodpecker damage varies based on how a homeowners insurance policy defines animal-related damage. Sudden damage may be covered, while long-term issues are often considered routine maintenance.",
+    "Keeping woodpeckers away after repairs typically involves addressing what drew them to the house in the first place. Managing insects, strengthening repaired areas, and shielding exposed wood help lower the chance of repeat damage.",
+  ),
+  (
+    "Woodpeckers damage homes by pecking holes into siding, trim, fascia, and corner boards, which can leave the exterior vulnerable to moisture and pests. Over time, even small openings can weaken exterior wood and accelerate surface deterioration.",
+    "Houses are usually pecked by woodpeckers when birds are searching for insects, building nesting cavities, or drumming to signal territory. Structures with exterior wood or shaded, damaged areas are more likely to be targeted repeatedly.",
+    "Woodpecker holes often appear as smooth, round openings, tight groupings of small holes, or deeper cavities formed from repeated pecking. These patterns help distinguish brief activity from ongoing nesting or feeding behavior.",
+    "Leaving woodpecker damage unrepaired allows water to pass through the holes and slowly damage surrounding materials. Continued exposure can result in rot, peeling finishes, and a much larger repair area over time.",
+    "Woodpecker activity alone doesn’t confirm termites, but it can indicate insects present in the wood. Since birds may be feeding on ants or larvae, inspecting the wood before sealing repairs helps prevent sealing in a problem.",
+    "Whether homeowners insurance covers woodpecker damage depends on policy terms and how the damage is classified. Some policies cover sudden animal damage, while gradual issues may fall under maintenance exclusions.",
+    "Reducing repeat woodpecker damage after repairs usually requires removing attractants and limiting access. Addressing insect activity, reinforcing repaired sections, and protecting exterior wood can help discourage return visits.",
+  ),
+  (
+    "Woodpecker damage typically involves holes drilled into siding, trim, fascia, and corner boards, creating paths for moisture and pests to enter the home. Even minor holes can weaken exterior wood and contribute to long-term deterioration.",
+    "Woodpeckers peck houses most often while hunting insects, forming nesting spaces, or drumming to establish territory. Homes with exterior wood or shaded, damaged areas are more appealing when the underlying cause isn’t corrected.",
+    "Holes caused by woodpeckers usually appear as clean round openings, clusters of small punctures, or deeper cavities formed by repeated activity. The size and placement often reveal whether the damage was brief or ongoing.",
+    "If woodpecker damage isn’t repaired, water can seep through the holes and gradually degrade nearby materials. Over time, this can lead to rot, finish failure, and more extensive exterior repairs.",
+    "Woodpecker damage doesn’t always point to termites, but it may indicate insects living in the wood. Because birds often target ants or larvae, assessing the condition of the wood before sealing holes is important.",
+    "Homeowners insurance coverage for woodpecker damage depends on how animal-related exterior damage is defined in the policy. Some coverage applies to sudden damage, while gradual issues may not be included.",
+    "Preventing woodpeckers from returning after repairs usually means addressing what attracted them initially. Managing insects, reinforcing repaired areas, and protecting exposed wood help reduce future damage.",
+  ),
+  (
+    "Woodpeckers damage houses by creating holes in siding, trim, fascia, and corner boards, leaving the exterior open to moisture and pests. Even small holes can weaken exterior wood and cause progressive surface damage when water intrusion continues.",
+    "Woodpeckers usually peck homes while searching for insects, carving nesting cavities, or drumming to mark territory. Homes with exterior wood, shade, or prior damage are more likely to experience repeat pecking if the cause isn’t addressed.",
+    "Woodpecker holes commonly appear as round openings, clusters of small holes, or deeper cavities created over time. The pattern and depth help indicate whether the activity was brief probing or repeated nesting behavior.",
+    "When woodpecker damage is ignored, moisture can enter through the openings and slowly damage surrounding materials. Continued exposure often leads to rot, paint breakdown, and larger repair needs.",
+    "Woodpecker activity does not automatically mean termites are present, but it can suggest insects in the wood. Since birds often target ants or larvae, evaluating the wood before sealing holes helps avoid sealing in pests.",
+    "Insurance coverage for woodpecker damage depends on the terms of a homeowners insurance policy and how the damage is classified. Sudden damage may be covered, while long-term deterioration is often excluded.",
+    "Keeping woodpeckers away after repairs usually involves removing attractants and strengthening repaired areas. Addressing insect problems and protecting exposed exterior wood can help prevent repeat damage.",
+  ),
+)
+
 
   howto_h2: tuple[str, ...] = (
-    "Quick Answer",
-    "How Repairs Are Typically Done",
-    "When DIY Often Fails",
-  )
-  howto_p: tuple[str, ...] = (
-    "Most repairs remove weak material, seal the opening, patch/replace sections, and restore the finish.",
-    "Pros focus on moisture control and adhesion so the repair lasts.",
-    "DIY often fails when underlying wood is soft or the repair is not fully sealed.",
+    "How Woodpecker Damage Is Typically Identified on a House",
+    "How Professionals Determine Whether Damage Is Surface-Level or Structural",
+    "How Different Repair Methods Are Used for Woodpecker Holes",
+    "How Woodpecker Damage Is Sealed to Prevent Moisture Intrusion",
+    "How Finish Matching Affects the Durability and Appearance of Repairs",
+    "When Woodpecker Damage Repair Is Not a DIY-Friendly Project",
   )
 
+  howto_p: tuple[tuple[str, ...], ...] = (
+  (
+    "Woodpecker damage is typically identified by spotting round holes, clusters of small punctures, or repeated cavities in siding and trim. These marks often appear on exterior wood surfaces and may vary in depth depending on how long the bird has been active.",
+    "Most woodpecker damage is identified by visible holes or peck marks in siding, fascia, or trim boards. The size and grouping of these holes often indicate whether the activity was brief or ongoing.",
+    "Identifying woodpecker damage usually starts with noticing clean, round holes or patterned clusters in exterior materials. These signs are most common on wood surfaces that sound hollow or retain moisture.",
+    "Woodpecker damage is commonly recognized by small to large holes in siding or trim, often appearing in repeated patterns. The visual layout of the holes helps determine how aggressively the area was targeted."
+  ),
+  (
+    "Professionals determine whether damage is surface-level or structural by checking the firmness of the surrounding wood and looking for moisture intrusion. Soft areas or discoloration can indicate deeper issues beyond the visible hole.",
+    "The difference between surface damage and structural damage is assessed by probing the material around the hole for softness or hidden rot. Damage that extends beyond the exterior layer usually requires more than a simple patch.",
+    "To determine damage severity, professionals examine whether the wood around the hole is solid or deteriorated. Moisture staining, softness, or movement often signals that the damage goes deeper than the surface.",
+    "Structural involvement is identified by inspecting how far the damage extends into the material and whether moisture has compromised the surrounding area. Surface-only damage typically remains firm and dry."
+  ),
+  (
+    "Different repair methods are used based on hole size, hole density, and the condition of the surrounding material. Small, isolated holes may be stabilized differently than areas with repeated or widespread damage.",
+    "Repair methods vary depending on whether damage is limited to a few small holes or spread across multiple boards. The condition of the surrounding wood largely determines whether patching or replacement is appropriate.",
+    "Professionals choose repair methods by evaluating how many holes are present and whether the material can support a durable repair. Stable wood allows for lighter repairs, while weakened areas often need replacement.",
+    "The repair approach is selected based on damage pattern and material condition rather than hole size alone. Repeated damage in one area often requires a more durable solution than isolated marks."
+  ),
+  (
+    "Woodpecker damage is sealed by closing the opening and stabilizing the surrounding area to keep moisture from entering the wall system. Proper sealing prevents water from reaching the wood behind the exterior surface.",
+    "Preventing moisture intrusion involves sealing both the hole itself and the edges around it so water cannot wick behind the repair. This step is critical for long-term durability.",
+    "Sealing woodpecker damage focuses on blocking water entry at the surface and around the repair boundary. Without proper sealing, moisture can undermine even a visually solid repair.",
+    "Moisture prevention is achieved by sealing the repaired area completely so rain and condensation cannot penetrate behind the exterior finish. This protects the structure from rot and deterioration."
+  ),
+  (
+    "Finish matching affects repair durability by helping protect the repaired area from weather exposure and UV breakdown. A consistent finish also prevents the repair from standing out visually.",
+    "Matching the existing finish helps repairs last longer by ensuring coatings bond evenly across old and new material. Poor finish blending can lead to premature peeling or moisture penetration.",
+    "Finish matching plays a role in durability by maintaining a continuous protective layer over the repair. Differences in texture or coating can shorten the lifespan of the repair.",
+    "A properly matched finish supports both appearance and performance by sealing the repair uniformly. Mismatched finishes often fail faster due to uneven exposure."
+  ),
+  (
+    "Woodpecker damage repair is not DIY-friendly when damage is widespread, access requires ladder work, or finish blending is critical. These situations increase the risk of repeat failure or personal injury.",
+    "DIY repair becomes impractical when holes are spread across multiple areas or when the surrounding wood is deteriorated. In these cases, repairs often fail without proper stabilization and sealing.",
+    "Projects involving height, multiple repair zones, or weakened materials are generally not suitable for DIY repair. These conditions make long-term durability difficult to achieve without professional methods.",
+    "Woodpecker repairs are poor DIY candidates when safety risks, material instability, or appearance expectations are high. Improper repairs in these situations often need to be redone."
+  ),
+)
+
+
   cost_h2: tuple[str, ...] = (
-    "Quick Answer",
-    "What Affects Pricing?",
-    "Key Takeaways",
+    "How Much Does Woodpecker Damage Repair Cost?",
+    "What Is Included in Woodpecker Damage Repair Cost?",
+    "How Woodpecker Damage Repair Cost Varies by Number of Holes and Areas",
+    "How Patching vs Board Replacement Affects Woodpecker Damage Repair Cost",
+    "What Factors Affect Woodpecker Damage Repair Cost?",
+    "Is Professional Woodpecker Damage Repair Worth the Cost?",
   )
-  cost_p: tuple[str, ...] = (
-    "Woodpecker damage repair typically costs {cost_lo} to {cost_hi}, depending on scope and finish work.",
-    "Big drivers are repair count, access height, substrate condition, and finish matching.",
-    "Scattered damage and repainting/blending usually push totals higher.",
-  )
+  cost_p: tuple[tuple[str, ...], ...] = (
+  (
+    "Woodpecker damage repair typically costs between a few hundred dollars for minor repairs and over a thousand dollars for widespread damage. Pricing depends on how many holes need repair, whether boards require replacement, and how much finish blending is needed.",
+    "Most woodpecker damage repairs fall within a mid-range cost, with smaller jobs on the lower end and extensive repairs costing more. The final price is driven by damage extent, access difficulty, and material condition.",
+    "The cost to repair woodpecker damage usually ranges based on repair size and complexity. Small patch jobs cost less, while multiple damaged areas or replacement work increase total pricing.",
+    "Homeowners can expect woodpecker damage repair costs to vary widely depending on scope and materials. Simple repairs are more affordable, while repeated damage and finish matching raise costs."
+  ),
+  (
+    "Woodpecker damage repair cost usually includes labor, material stabilization, sealing, and finish matching to restore the exterior. Pricing often reflects the time required to make repairs durable and visually consistent.",
+    "Most repair estimates include preparing the damaged area, sealing holes, repairing or replacing affected material, and restoring the exterior finish. These steps are necessary to prevent moisture intrusion and repeat damage.",
+    "Included costs typically cover patching or replacement, sealing against water, and blending the repaired area with the surrounding surface. The goal is a repair that holds up and doesn’t stand out.",
+    "Woodpecker repair pricing generally accounts for access setup, repair materials, sealing work, and finish restoration. These components ensure the repair is weather-tight and long-lasting."
+  ),
+  (
+    "Woodpecker damage repair cost increases as the number of holes and affected areas grows. Repairs concentrated in one spot usually cost less than scattered damage across multiple sections of the home.",
+    "Pricing varies by scope because multiple holes or separate repair locations require more labor, setup, and finish blending. Widely spread damage often raises costs faster than hole size alone.",
+    "The more holes and distinct areas that need repair, the higher the total cost tends to be. Scattered damage increases labor time and complexity compared to localized repairs.",
+    "Repair costs scale with how many areas are affected and how accessible they are. Multiple repair zones often require additional setup and blending, which increases pricing."
+  ),
+  (
+    "Patching typically costs less than board replacement because it requires fewer materials and less labor. Replacement raises costs due to removal, installation, and additional finish matching.",
+    "The cost difference between patching and board replacement comes down to material condition and durability. Replacement is more expensive but often necessary when wood is weak or damage is repeated.",
+    "Patching is generally cheaper for isolated holes, while board replacement increases costs when damage compromises structural integrity. Replacement work also adds labor and finishing time.",
+    "Repair method significantly affects pricing, with patching on solid wood being more affordable than full board replacement. Replacement becomes more costly as finish blending and access requirements increase."
+  ),
+  (
+    "Several factors affect woodpecker damage repair cost, including access height, material type, finish matching, and moisture damage. These variables influence both labor time and repair complexity.",
+    "Cost is affected by rooflines, ladder access, exterior materials, and whether surrounding wood is deteriorated. Repairs that require additional stabilization or blending usually cost more.",
+    "Factors that raise repair cost include difficult access, widespread damage, weakened wood, and the need for extensive finish restoration. Each adds time and labor to the project.",
+    "Woodpecker repair pricing is influenced by damage severity, location on the house, material condition, and appearance requirements. More complex repairs naturally increase total cost."
+  ),
+)
+
 
   # Local cost snippet
   location_cost_h2: str = "How Much Does Woodpecker Damage Repair Cost in {City, State}?"
-  location_cost_p: str = (
-    "In {City, State}, most projects range from {cost_lo} to {cost_hi}, depending on scope and access. "
-    "Prices vary with local labor rates and finish matching needs."
-  )
+  location_cost_p: tuple[str, ...] = (
+  (
+    "In {City, State}, woodpecker damage repair typically costs between {cost_lo} and {cost_hi}, depending on how many holes need repair and how accessible the damaged areas are. "
+    "Local labor rates and finish matching requirements can also influence the final price."
+  ),
+  (
+    "Most woodpecker damage repair projects in {City, State} fall within the {cost_lo} to {cost_hi} range, with pricing based on damage extent and access difficulty. "
+    "Costs may vary depending on exterior materials and local labor conditions."
+  ),
+  (
+    "Homeowners in {City, State} usually pay between {cost_lo} and {cost_hi} for woodpecker damage repair, depending on scope and repair complexity. "
+    "Factors like ladder access, material condition, and finish blending can affect pricing."
+  ),
+  (
+    "The cost of woodpecker damage repair in {City, State} generally ranges from {cost_lo} to {cost_hi}, based on the number of damaged areas and how spread out they are. "
+    "Local labor rates and exterior finish requirements play a role in the total cost."
+  ),
+  (
+    "In {City, State}, most woodpecker damage repair jobs cost between {cost_lo} and {cost_hi}, depending on repair scope and access height. "
+    "Pricing can also vary based on local labor pricing and the level of finish matching needed."
+  ),
+)
+
 
 
 CONFIG = SiteConfig()
@@ -267,6 +427,33 @@ Mode = str  # "regular" | "cost" | "state" | "subdomain"
 SITE_ORIGIN = (os.environ.get("SITE_ORIGIN") or "").rstrip("/")
 SUBDOMAIN_BASE = (os.environ.get("SUBDOMAIN_BASE") or "").strip().lower().strip(".")
 
+# ============================================================
+# COPY VARIANTS (1..5) selected by mode (override with env)
+# ============================================================
+
+COPY_VARIANT_BY_MODE: dict[str, int] = {
+  "regular": 1,
+  "cost": 2,
+  "state": 3,
+  "subdomain": 4,
+  "regular_city_only": 5,
+}
+
+def resolve_copy_idx(mode: str) -> int:
+  """
+  Returns idx 0..4 for picking the copy variant.
+  Env override: COPY_VARIANT=1..5
+  Otherwise uses COPY_VARIANT_BY_MODE[mode].
+  """
+  raw = (os.environ.get("COPY_VARIANT") or "").strip()
+  if raw.isdigit():
+    v = int(raw)
+  else:
+    v = COPY_VARIANT_BY_MODE.get(mode, 1)
+
+  v = max(1, min(5, v))  # clamp 1..5
+  return v - 1           # idx 0..4
+
 def rel_city_path_regular(city: str, st: str) -> str:
   return f"/{slugify(city)}-{slugify(st)}/"
 
@@ -335,9 +522,9 @@ a{color:inherit}
 .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{font-weight:900;letter-spacing:-.02em;text-decoration:none}
 .nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-.nav a{text-decoration:none;font-size:13px;color:var(--muted);padding:7px 10px;border-radius:12px;border:1px solid transparent}
-.nav a:hover{background:var(--soft);border-color:var(--line)}
-.nav a[aria-current="page"]{color:var(--ink);background:var(--soft);border:1px solid var(--line)}
+.nav a:not(.btn){text-decoration:none;font-size:13px;color:var(--muted);padding:7px 10px;border-radius:12px;border:1px solid transparent}
+.nav a:not(.btn):hover{background:var(--soft);border-color:var(--line)}
+.nav a:not(.btn)[aria-current="page"]{color:var(--ink);background:var(--soft);border:1px solid var(--line)}
 .btn{display:inline-block;padding:9px 12px;background:var(--cta);color:#fff;border-radius:12px;text-decoration:none;font-weight:900;font-size:13px;border:1px solid rgba(0,0,0,.04);box-shadow:0 8px 18px rgba(22,163,74,.18)}
 .btn:hover{background:var(--cta2)}
 header{border-bottom:1px solid var(--line);background:radial-gradient(1200px 380px at 10% -20%, rgba(22,163,74,.08), transparent 55%),radial-gradient(900px 320px at 95% -25%, rgba(17,24,39,.06), transparent 50%),#fbfbfa}
@@ -559,12 +746,14 @@ def make_page(
     ),
   )
 
-def make_section(*, headings: tuple[str, ...], paras: tuple[str, ...], home_href: str) -> str:
+def make_section(*, headings: tuple[str, ...], paras: tuple[str, ...]) -> str:
+
   parts: list[str] = []
   for h2, p in zip(headings, paras):
     parts.append(f"<h2>{esc(h2)}</h2>")
-    parts.append(f"<p>{linkify_curly(p, home_href=home_href)}</p>")
+    parts.append(f"<p>{esc(p)}</p>")
   return "\n".join(parts)
+
 
 def location_cost_section(city: str, st: str, col: float, home_href: str) -> str:
   cost_lo = f"<strong>${int(CONFIG.cost_low * col)}</strong>"
@@ -572,13 +761,13 @@ def location_cost_section(city: str, st: str, col: float, home_href: str) -> str
 
   h2 = CONFIG.location_cost_h2.replace("{City, State}", f"{city}, {st}")
   p = (
-    CONFIG.location_cost_p
+    CONFIG.location_cost_p[COPY_IDX]
     .replace("{City, State}", f"{city}, {st}")
     .replace("{cost_lo}", cost_lo)
     .replace("{cost_hi}", cost_hi)
   )
 
-  return f"<h2>{esc(h2)}</h2>\n<p>{linkify_curly(p, home_href=home_href)}</p>"
+  return f"<h2>{esc(h2)}</h2>\n<p>{p}</p>"
 
 
 # ============================================================
@@ -592,7 +781,8 @@ def homepage_html(*, mode: Mode) -> str:
   )
 
   inner = (
-    make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+    f"<p>{esc(CONFIG.about_blurb[COPY_IDX])}</p>\n"
+    + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
     + """
 <hr />
 <h2>Choose your city</h2>
@@ -602,13 +792,6 @@ def homepage_html(*, mode: Mode) -> str:
     + links
     + """
 </ul>
-"""
-    + f"""
-<hr />
-<p class="muted">
-  Also available: <a href="{esc(href_cost_index(mode))}">{esc(CONFIG.cost_title)}</a>
-  and <a href="{esc(href_howto_index(mode))}">{esc(CONFIG.howto_title)}</a>.
-</p>
 """
   )
 
@@ -645,7 +828,7 @@ def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str
   inner = (
     location_cost_section(city, st, col, home_href=href_home(mode))
     + "<hr />\n"
-    + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+    + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
   )
 
   return make_page(
@@ -663,9 +846,8 @@ def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
     paras=tuple(
       p.replace("{cost_lo}", f"<strong>${CONFIG.cost_low}</strong>")
        .replace("{cost_hi}", f"<strong>${CONFIG.cost_high}</strong>")
-      for p in CONFIG.cost_p
+      for p in CONFIG.cost_p[COPY_IDX]
     ),
-    home_href=href_home(mode),
   )
 
   if include_city_index:
@@ -714,9 +896,8 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
       paras=tuple(
         p.replace("{cost_lo}", f"<strong>${int(CONFIG.cost_low * col)}</strong>")
          .replace("{cost_hi}", f"<strong>${int(CONFIG.cost_high * col)}</strong>")
-        for p in CONFIG.cost_p
+        for p in CONFIG.cost_p[COPY_IDX]
       ),
-      home_href=href_home(mode),
     )
     + f"""
 <hr />
@@ -737,7 +918,7 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
   )
 
 def howto_page_html(*, mode: Mode) -> str:
-  inner = make_section(headings=CONFIG.howto_h2, paras=CONFIG.howto_p, home_href=href_home(mode))
+  inner = make_section(headings=CONFIG.howto_h2, paras=CONFIG.howto_p[COPY_IDX])
   return make_page(
     mode=mode,
     h1=CONFIG.howto_title,
@@ -757,7 +938,8 @@ def state_homepage_html(*, mode: Mode) -> str:
   )
 
   inner = (
-    make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+    f"<p>{esc(CONFIG.about_blurb[COPY_IDX])}</p>\n"
+    + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
     + """
 <hr />
 <h2>Choose your state</h2>
@@ -791,11 +973,6 @@ def state_page_html(*, mode: Mode, st: str, cities: list[CityWithCol]) -> str:
 <ul class="city-grid">
 {links}
 </ul>
-<hr />
-<p class="muted">
-  Also available: <a href="{esc(href_cost_index(mode))}">{esc(CONFIG.cost_title)}</a>
-  and <a href="{esc(href_howto_index(mode))}">{esc(CONFIG.howto_title)}</a>.
-</p>
 """.strip()
 
   return make_page(
@@ -976,7 +1153,7 @@ def build_regular_city_only(*, out: Path) -> None:
       nav_key="home",
       sub=CONFIG.h1_sub,
       inner=(
-        make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+        make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX],)
         + """
 <hr />
 <h2>Choose your city</h2>
@@ -1020,7 +1197,7 @@ def build_regular_city_only(*, out: Path) -> None:
         inner=(
           location_cost_section(city, st, col, home_href=href_home(mode))
           + "<hr />\n"
-          + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p, home_href=href_home(mode))
+          + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
         ),
         nav_show_cost=False,
         nav_show_howto=False,
@@ -1042,8 +1219,22 @@ def build_regular_city_only(*, out: Path) -> None:
 # ENTRYPOINT
 # ============================================================
 
-SITE_MODE: Mode = "regular_city_only"
-# "regular" | "cost" | "state" | "subdomain" | "regular_city_only"
+VALID_MODES: set[str] = {
+  "regular",
+  "cost",
+  "state",
+  "subdomain",
+  "regular_city_only",
+}
+
+SITE_MODE: Mode = sys.argv[1] if len(sys.argv) > 1 else "regular"
+COPY_IDX: int = resolve_copy_idx(SITE_MODE)
+
+if SITE_MODE not in VALID_MODES:
+  raise ValueError(
+    f"Invalid SITE_MODE {SITE_MODE!r}. "
+    f"Choose one of: {', '.join(sorted(VALID_MODES))}"
+  )
 
 def main() -> None:
   here = Path(__file__).resolve().parent

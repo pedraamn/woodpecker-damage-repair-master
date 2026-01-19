@@ -18,9 +18,9 @@ a{color:inherit}
 .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{font-weight:900;letter-spacing:-.02em;text-decoration:none}
 .nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-.nav a{text-decoration:none;font-size:13px;color:var(--muted);padding:7px 10px;border-radius:12px;border:1px solid transparent}
-.nav a:hover{background:var(--soft);border-color:var(--line)}
-.nav a[aria-current="page"]{color:var(--ink);background:var(--soft);border:1px solid var(--line)}
+.nav a:not(.btn){text-decoration:none;font-size:13px;color:var(--muted);padding:7px 10px;border-radius:12px;border:1px solid transparent}
+.nav a:not(.btn):hover{background:var(--soft);border-color:var(--line)}
+.nav a:not(.btn)[aria-current="page"]{color:var(--ink);background:var(--soft);border:1px solid var(--line)}
 .btn{display:inline-block;padding:9px 12px;background:var(--cta);color:#fff;border-radius:12px;text-decoration:none;font-weight:900;font-size:13px;border:1px solid rgba(0,0,0,.04);box-shadow:0 8px 18px rgba(22,163,74,.18)}
 .btn:hover{background:var(--cta2)}
 header{border-bottom:1px solid var(--line);background:radial-gradient(1200px 380px at 10% -20%, rgba(22,163,74,.08), transparent 55%),radial-gradient(900px 320px at 95% -25%, rgba(17,24,39,.06), transparent 50%),#fbfbfa}
