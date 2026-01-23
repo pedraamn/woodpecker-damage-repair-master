@@ -826,9 +826,8 @@ def contact_page_html(*, mode: Mode) -> str:
 
 def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str) -> str:
   inner = (
-    location_cost_section(city, st, col, home_href=href_home(mode))
-    + "<hr />\n"
-    + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
+    make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
+    + location_cost_section(city, st, col, home_href=href_home(mode))
   )
 
   return make_page(
@@ -899,13 +898,6 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
         for p in CONFIG.cost_p[COPY_IDX]
       ),
     )
-    + f"""
-<hr />
-<p class="muted">
-  Also available: <a href="{esc(href_city(mode, city, st))}">{esc(CONFIG.h1_short)} in {esc(city)}, {esc(st)}</a>
-  and <a href="{esc(href_howto_index(mode))}">{esc(CONFIG.howto_title)}</a>.
-</p>
-"""
   )
 
   return make_page(
