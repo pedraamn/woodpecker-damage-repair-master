@@ -323,6 +323,448 @@ class SiteConfig:
   ),
 )
 
+COST_INNER = """
+<section>
+  <p>Exterior Siding &amp; Trim Repair</p>
+
+  <h1>Woodpecker Damage Repair Cost: Real Price Ranges (By Hole Size, Siding Type, and Severity)</h1>
+
+  <p>
+    Woodpecker damage repair costs depend on three variables: how deep the holes go, what material was hit,
+    and whether water or rot has started. This page gives price ranges you can compare to quotes and explains
+    what pushes costs up.
+  </p>
+
+  <hr />
+
+  <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Repair Scenario</th>
+        <th>Typical Cost Range</th>
+        <th>What You’re Paying For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Small hole repair (up to ~2")</td>
+        <td>$150–$350</td>
+        <td>Clean-out, epoxy patch/plug, seal, spot finish</td>
+      </tr>
+      <tr>
+        <td>Medium hole repair (~2–6")</td>
+        <td>$300–$800</td>
+        <td>Deeper patch/plug, sealing, finish blending</td>
+      </tr>
+      <tr>
+        <td>Large hole repair (over ~6")</td>
+        <td>$600–$1,500</td>
+        <td>Section rebuild or partial replacement, sealing, finish</td>
+      </tr>
+      <tr>
+        <td>Replace a damaged siding board / small area</td>
+        <td>$500–$2,500</td>
+        <td>Remove/replace material, water management, finish match</td>
+      </tr>
+      <tr>
+        <td>Structural repair (sheathing/stud/insulation affected)</td>
+        <td>$1,000–$3,500+</td>
+        <td>Open-up, replace damaged wood, restore weather barrier</td>
+      </tr>
+      <tr>
+        <td>Interior wall repair (if penetrated)</td>
+        <td>$250–$900</td>
+        <td>Drywall patch, texture match, paint</td>
+      </tr>
+      <tr>
+        <td>Paint/stain blending (separate line item)</td>
+        <td>$150–$600</td>
+        <td>Prime + blend to hide repair</td>
+      </tr>
+      <tr>
+        <td>High access work (2nd story / steep roofline)</td>
+        <td>+15% to +50%</td>
+        <td>Setup time, safety, ladders or lift</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <strong>Typical total:</strong> $300–$2,500.
+    <strong>When hidden damage is present:</strong> $5,000+ is possible.
+  </p>
+
+  <hr />
+
+  <h2>Cost by Severity (Fast Self-Assessment)</h2>
+
+  <h3>Minor</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> 1–2 small holes, shallow pecks, solid wood</li>
+    <li><strong>Expected cost:</strong> $150–$500</li>
+    <li><strong>Common repair:</strong> epoxy patch/plug + seal + spot finish</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> multiple holes in one zone, repeated pecking on the same board</li>
+    <li><strong>Expected cost:</strong> $500–$2,500</li>
+    <li><strong>Common repair:</strong> multi-hole patching or board/panel replacement + finish blending</li>
+  </ul>
+
+  <h3>Severe</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> cavity access, soft/rotted wood, water staining, nesting attempts</li>
+    <li><strong>Expected cost:</strong> $2,500–$5,000+</li>
+    <li><strong>Common repair:</strong> open-up + structural repair + insulation/water barrier restoration</li>
+  </ul>
+
+  <hr />
+
+  <h2>Repair Cost by Siding Material</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Siding Material</th>
+        <th>Typical Repair Range</th>
+        <th>Why It Costs More (or Less)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wood lap siding</td>
+        <td>$300–$3,000</td>
+        <td>Finish matching + moisture protection are labor-heavy</td>
+      </tr>
+      <tr>
+        <td>Cedar shake</td>
+        <td>$500–$4,000</td>
+        <td>Individual shake replacement + blend pattern/aging</td>
+      </tr>
+      <tr>
+        <td>Vinyl siding</td>
+        <td>$250–$2,000</td>
+        <td>Often panel replacement; color matching varies by age</td>
+      </tr>
+      <tr>
+        <td>Fiber cement</td>
+        <td>$500–$3,500</td>
+        <td>Cutting/fastening + repainting required</td>
+      </tr>
+      <tr>
+        <td>Stucco</td>
+        <td>$800–$4,500</td>
+        <td>Multi-step patch + texture matching</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2>What Increases Woodpecker Repair Costs</h2>
+
+  <ul>
+    <li><strong>Hidden moisture:</strong> swelling, rot, or stained sheathing behind siding</li>
+    <li><strong>Hole depth:</strong> penetration into cavity or insulation triggers bigger scope</li>
+    <li><strong>Repeat targeting:</strong> multiple boards or corners need repair + protection</li>
+    <li><strong>Access:</strong> second story, roofline, chimney, steep grade</li>
+    <li><strong>Finish matching:</strong> older paint/stain requires blending, not just patching</li>
+  </ul>
+
+  <hr />
+
+  <h2>When Patching Is Enough vs When Replacement Is Required</h2>
+
+  <h3>Patching is usually enough if:</h3>
+  <ul>
+    <li>The wood is hard when probed</li>
+    <li>Holes are shallow and limited to the surface</li>
+    <li>No water staining, softness, or swelling is present</li>
+  </ul>
+
+  <h3>Replacement is usually required if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes are large, deep, or connected internally</li>
+    <li>There is rot, cracking, swelling, or delamination</li>
+    <li>The same board has been hit repeatedly</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is more reliable than patching.
+  </p>
+
+  <hr />
+
+  <h2>Prevention Costs (Avoid Paying Twice)</h2>
+
+  <p>
+    Repairs alone often get hit again. Physical exclusion is what consistently stops repeat damage.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Prevention Method</th>
+        <th>Typical Cost</th>
+        <th>Best Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bird netting over the target area</td>
+        <td>$150–$800</td>
+        <td>Repeat pecking zones on siding walls</td>
+      </tr>
+      <tr>
+        <td>Hardware cloth / barrier panels</td>
+        <td>$150–$900</td>
+        <td>Corners, fascia, trim boards that get repeatedly hit</td>
+      </tr>
+      <tr>
+        <td>Metal flashing / corner protection</td>
+        <td>$200–$1,000</td>
+        <td>High-impact edges and roofline zones</td>
+      </tr>
+      <tr>
+        <td>Professional wildlife exclusion / control</td>
+        <td>$300–$1,500</td>
+        <td>Persistent activity or nesting attempts</td>
+      </tr>
+      <tr>
+        <td>Visual deterrents (tape/decoys)</td>
+        <td>$20–$150</td>
+        <td>Short-term support only (not a primary fix)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2>What a Repair Quote Should Include</h2>
+
+  <ul>
+    <li>Hole count and largest hole diameter</li>
+    <li>Patch vs board/panel replacement scope</li>
+    <li>Waterproofing plan (sealant, flashing, weather barrier restoration)</li>
+    <li>Finish plan (prime + paint blend or stain match)</li>
+    <li>Access plan (ladder vs lift and how it impacts price)</li>
+    <li>Prevention plan (netting/barriers) to reduce repeat damage</li>
+  </ul>
+
+  <hr />
+
+  <h2>Insurance Coverage (Common Reality)</h2>
+
+  <p>
+    Home insurance may cover woodpecker damage depending on the policy and exclusions. Coverage is more likely when
+    damage is sudden and not tied to neglect. Document the damage immediately and ask whether animal-related exterior
+    damage is covered.
+  </p>
+
+  <hr />
+
+  <h2>FAQ</h2>
+
+  <h3>Why are some quotes much higher than the averages?</h3>
+  <p>
+    Higher quotes usually mean access challenges, board replacement instead of patching, finish blending, or damage
+    into sheathing/insulation. Moisture and rot expand scope quickly.
+  </p>
+
+  <h3>Is it cheaper to patch everything instead of replacing boards?</h3>
+  <p>
+    Patching is cheaper upfront, but repeated pecking or soft wood often fails. When wood is compromised, replacement
+    is typically the lower-cost long-term option.
+  </p>
+
+  <h3>Do woodpecker holes always mean insects?</h3>
+  <p>
+    No. Woodpeckers also drum for territory and target resonant surfaces. Treat insects only when clear evidence exists,
+    and use physical exclusion to prevent repeat damage.
+  </p>
+</section>
+"""
+
+HOWTO_INNER = """
+<section>
+
+  <p>Exterior Siding &amp; Trim Repair</p>
+
+  <h1>How to Repair Woodpecker Damage (Cedar Siding, Trim, and Roofs) — And Stop It for Good</h1>
+
+  <p>
+    Woodpecker damage can look minor at first, but even small holes can allow water into siding, trim,
+    and roof structures, leading to swelling, rot, and long-term structural issues. Repairing the damage
+    correctly — and preventing repeat attacks — is the key to protecting your home.
+  </p>
+
+  <p>
+    This guide explains how to repair woodpecker damage properly, when patching is enough, when
+    replacement is required, and what actually works to keep woodpeckers from coming back.
+  </p>
+
+  <hr />
+
+  <h2>Do Woodpecker Holes Mean You Have Insects?</h2>
+
+  <p>Not always.</p>
+
+  <p>
+    While woodpeckers sometimes peck to find insects, many attacks on houses happen for other reasons:
+  </p>
+
+  <ul>
+    <li>Territorial drumming, especially in spring</li>
+    <li>Attraction to resonant surfaces like cedar siding or trim</li>
+    <li>Existing holes that encourage repeat pecking</li>
+  </ul>
+
+  <p>
+    Eliminating insects alone does not reliably stop woodpecker damage. In many cases, the bird will
+    continue pecking even when no infestation is present.
+  </p>
+
+  <p>
+    <strong>Bottom line:</strong> Repair the damage promptly and use physical exclusion to prevent
+    recurrence. Treat insects only if clear evidence exists.
+  </p>
+
+  <hr />
+
+  <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
+
+  <p>Before filling holes, determine how deep the damage goes.</p>
+
+  <h3>You can usually repair if:</h3>
+  <ul>
+    <li>The wood is solid when probed</li>
+    <li>The hole is shallow or clean-edged</li>
+    <li>No moisture staining or softness is present</li>
+  </ul>
+
+  <h3>You should replace siding or trim if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes penetrate deeply or connect internally</li>
+    <li>There is visible rot, swelling, or cracking</li>
+    <li>Damage has occurred repeatedly in the same board</li>
+  </ul>
+
+  <p>
+    If you can push a screwdriver into the wood easily, replacement is safer than patching.
+  </p>
+
+  <hr />
+
+  <h2>Step 2: Choose the Right Repair Method</h2>
+
+  <h3>Method 1: Patch Small Holes and Divots</h3>
+  <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
+
+  <ol>
+    <li>Remove loose fibers and debris</li>
+    <li>Let the area dry completely</li>
+    <li>Fill with two-part epoxy wood filler</li>
+    <li>Slightly overfill and sand smooth after curing</li>
+    <li>Prime bare wood</li>
+    <li>Paint or stain to match</li>
+  </ol>
+
+  <p>
+    Epoxy fillers outperform standard caulk or lightweight putties in exterior conditions.
+  </p>
+
+  <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
+  <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
+
+  <ol>
+    <li>Drill the hole clean using a hole saw</li>
+    <li>Cut a matching wood plug when possible</li>
+    <li>Bond the plug with exterior epoxy or adhesive</li>
+    <li>Sand flush once cured</li>
+    <li>Prime and paint or stain</li>
+  </ol>
+
+  <p>
+    This method restores strength and blends better than surface fillers alone.
+  </p>
+
+  <h3>Method 3: Replace Damaged Boards or Sections</h3>
+  <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
+
+  <ol>
+    <li>Remove the damaged board carefully</li>
+    <li>Inspect underlying sheathing or framing</li>
+    <li>Repair moisture issues if present</li>
+    <li>Install a matching replacement board</li>
+    <li>Seal, prime, and finish all exposed surfaces</li>
+  </ol>
+
+  <hr />
+
+  <h2>Step 3: Seal and Finish Correctly</h2>
+
+  <ul>
+    <li>Prime all exposed wood before painting</li>
+    <li>Pay special attention to end grain</li>
+    <li>Use paintable exterior caulk only at seams</li>
+    <li>Match existing paint or stain to protect repairs</li>
+  </ul>
+
+  <hr />
+
+  <h2>How to Prevent Woodpeckers From Returning</h2>
+
+  <p>
+    Repairing holes alone often leads to repeat damage, sometimes within days.
+  </p>
+
+  <h3>Install Bird Netting</h3>
+
+  <ul>
+    <li>Use 3/4-inch mesh netting</li>
+    <li>Maintain at least 3 inches of space from siding</li>
+    <li>Cover the entire affected wall section</li>
+  </ul>
+
+  <p>
+    If netting is installed too narrowly, woodpeckers will simply move to the edge and continue pecking.
+  </p>
+
+  <h3>Use Physical Barriers Where Needed</h3>
+
+  <ul>
+    <li>Hardware cloth</li>
+    <li>Sheet metal or PVC panels</li>
+    <li>Protective flashing on corners and fascia</li>
+  </ul>
+
+  <h3>Visual Deterrents</h3>
+
+  <p>
+    Reflective tape or streamers may help temporarily but are best used as a supplement, not a primary solution.
+  </p>
+
+  <hr />
+
+  <h2>When Insects Do Matter</h2>
+
+  <p>Insect treatment is appropriate only when clear signs are present, such as:</p>
+
+  <ul>
+    <li>Carpenter ants</li>
+    <li>Carpenter bees</li>
+    <li>Termites</li>
+  </ul>
+
+  <p>
+    If insects are confirmed, address them in addition to repairing damage and excluding birds.
+  </p>
+"""
 
 
 CONFIG = SiteConfig()
@@ -840,15 +1282,7 @@ def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str
   )
 
 def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
-  inner = make_section(
-    headings=CONFIG.cost_h2,
-    paras=tuple(
-      p.replace("{cost_lo}", f"<strong>${CONFIG.cost_low}</strong>")
-       .replace("{cost_hi}", f"<strong>${CONFIG.cost_high}</strong>")
-      for p in CONFIG.cost_p[COPY_IDX]
-    ),
-  )
-
+  inner = COST_INNER
   if include_city_index:
     links = "\n".join(
       f'<li><a href="{esc(cost_city_href(mode, c, s))}">{esc(c)}, {esc(s)}</a></li>'
@@ -910,7 +1344,7 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
   )
 
 def howto_page_html(*, mode: Mode) -> str:
-  inner = make_section(headings=CONFIG.howto_h2, paras=CONFIG.howto_p[COPY_IDX])
+  inner = HOWTO_INNER
   return make_page(
     mode=mode,
     h1=CONFIG.howto_title,
