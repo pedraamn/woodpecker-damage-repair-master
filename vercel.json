@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<city>[a-z0-9-]+)\\.woodpeckerdamagerepairspecialists\\.com"
+        }
+      ],
+      "dest": "/$city/$1"
+    }
+  ]
+}
