@@ -926,7 +926,7 @@ tbody tr:last-child td{border-bottom:none}
   .nav .btn{width:100%;text-align:center}
 
   /* ---------- TABLES (mobile scroll) ---------- */
-  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{min-width:720px}
 }
 """.strip()
