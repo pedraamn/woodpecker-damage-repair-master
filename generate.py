@@ -3163,7 +3163,7 @@ def build_regular_city_only(*, out: Path) -> None:
         nav_key="home",
         sub=CONFIG.h1_sub,
         inner=(
-          location_cost_section(city, st, col, home_href=href_home(mode))
+          location_cost_section(city, st, col)
           + "<hr />\n"
           + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
         ),
