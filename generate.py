@@ -2320,18 +2320,21 @@ def rel_city_path_state(city: str, st: str) -> str:
   return f"/{slugify(st)}/{slugify(city)}/"
 
 def abs_city_origin_subdomain(city: str, st: str) -> str:
-  # subdomain slug uses the same {city}-{st} slug
   slug = f"{slugify(city)}-{slugify(st)}"
-  base = SUBDOMAIN_BASE or (SITE_ORIGIN.replace("https://", "").replace("http://", "").split("/")[0] if SITE_ORIGIN else "")
+
+  base = (SUBDOMAIN_BASE or "").strip()
+  base = base.replace("https://", "").replace("http://", "")
+  base = base.lstrip(".").rstrip("/")
+
   if not base:
-    # fallback: relative if user didn't set SUBDOMAIN_BASE/SITE_ORIGIN
+    # fallback
     return f"/{slug}/"
+
   return f"https://{slug}.{base}/"
 
+
 def href_home(mode: Mode) -> str:
-  if mode == "subdomain":
-    # root domain homepage
-    return SITE_ORIGIN + "/" if SITE_ORIGIN else "/"
+  # In subdomain mode, "/" should mean "this host's root"
   return "/"
 
 def href_city(mode: Mode, city: str, st: str) -> str:
