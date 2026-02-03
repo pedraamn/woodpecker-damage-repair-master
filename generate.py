@@ -114,14 +114,14 @@ class SiteConfig:
   cost_high: int = 800
 
   # Core titles/subs
-  h1_title: str = "Woodpecker Damage Repair/Woodpecker Hole Repair/Siding Repair Services"
+  h1_title: str = "Woodpecker Damage/Hole Repair and Siding Repair Services"
   h1_short: str = "Woodpecker Damage Repair Services"
   h1_sub: str = "Weather-tight siding and trim repairs that seal holes, match finishes, and reduce repeat damage."
 
   cost_title: str = "Woodpecker Damage Repair Cost"
   cost_sub: str = "Typical pricing ranges, scope examples, and what drives the total for siding and trim repairs."
 
-  howto_title: str = "How Woodpecker Damage Repair Works"
+  howto_title: str = "How to Repair Woodpecker Damage"
   howto_sub: str = "A practical, homeowner-friendly guide to how repairs are typically done and when DIY breaks down."
 
   about_blurb: tuple[str, ...] = (
@@ -299,44 +299,33 @@ class SiteConfig:
 
 
   # Local cost snippet
-  location_cost_h2: str = "How Much Does Woodpecker Damage Repair Cost in {City, State}?"
+  location_cost_h2: str = "How Much Does Woodpecker Damage Repair Cost{loc}?"
   location_cost_p: tuple[str, ...] = (
-  (
-    "In {City, State}, woodpecker damage repair typically costs between {cost_lo} and {cost_hi}, depending on how many holes need repair and how accessible the damaged areas are. "
-    "Local labor rates and finish matching requirements can also influence the final price."
-  ),
-  (
-    "Most woodpecker damage repair projects in {City, State} fall within the {cost_lo} to {cost_hi} range, with pricing based on damage extent and access difficulty. "
-    "Costs may vary depending on exterior materials and local labor conditions."
-  ),
-  (
-    "Homeowners in {City, State} usually pay between {cost_lo} and {cost_hi} for woodpecker damage repair, depending on scope and repair complexity. "
-    "Factors like ladder access, material condition, and finish blending can affect pricing."
-  ),
-  (
-    "The cost of woodpecker damage repair in {City, State} generally ranges from {cost_lo} to {cost_hi}, based on the number of damaged areas and how spread out they are. "
-    "Local labor rates and exterior finish requirements play a role in the total cost."
-  ),
-  (
-    "In {City, State}, most woodpecker damage repair jobs cost between {cost_lo} and {cost_hi}, depending on repair scope and access height. "
-    "Pricing can also vary based on local labor pricing and the level of finish matching needed."
-  ),
-)
+    (
+      "Woodpecker damage repair costs {loc} typically range between {cost_lo} and {cost_hi}, depending on how many holes need repair and how accessible the damaged areas are. "
+      "Local labor rates and finish matching requirements can also influence the final price."
+    ),
+    (
+      "Most woodpecker damage repair projects {loc} fall within the {cost_lo} to {cost_hi} range, with pricing based on damage extent and access difficulty. "
+      "Costs may vary depending on exterior materials and local labor conditions."
+    ),
+    (
+      "Homeowners {loc} usually pay between {cost_lo} and {cost_hi} for woodpecker damage repair, depending on scope and repair complexity. "
+      "Factors like ladder access, material condition, and finish blending can affect pricing."
+    ),
+    (
+      "The cost of woodpecker damage repair {loc} generally ranges from {cost_lo} to {cost_hi}, based on the number of damaged areas and how spread out they are. "
+      "Local labor rates and exterior finish requirements play a role in the total cost."
+    ),
+    (
+      "Typical woodpecker damage repair jobs {loc} cost between {cost_lo} and {cost_hi}, depending on repair scope and access height. "
+      "Pricing can also vary based on local labor pricing and the level of finish matching needed."
+    ),
+  )
+
 
 COST_INNER = """
 <section>
-  <p>Exterior Siding &amp; Trim Repair</p>
-
-  <h1>Woodpecker Damage Repair Cost: Real Price Ranges (By Hole Size, Siding Type, and Severity)</h1>
-
-  <p>
-    Woodpecker damage repair costs depend on three variables: how deep the holes go, what material was hit,
-    and whether water or rot has started. This page gives price ranges you can compare to quotes and explains
-    what pushes costs up.
-  </p>
-
-  <hr />
-
   <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
 
   <table>
@@ -544,7 +533,7 @@ COST_INNER = """
 
   <hr />
 
-  <h2>What a Repair Quote Should Include</h2>
+  <h2>What a Siding Repair Quote Should Include</h2>
 
   <ul>
     <li>Hole count and largest hole diameter</li>
@@ -557,84 +546,18 @@ COST_INNER = """
 
   <hr />
 
-  <h2>Insurance Coverage (Common Reality)</h2>
+  <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
 
   <p>
     Home insurance may cover woodpecker damage depending on the policy and exclusions. Coverage is more likely when
     damage is sudden and not tied to neglect. Document the damage immediately and ask whether animal-related exterior
     damage is covered.
   </p>
-
-  <hr />
-
-  <h2>FAQ</h2>
-
-  <h3>Why are some quotes much higher than the averages?</h3>
-  <p>
-    Higher quotes usually mean access challenges, board replacement instead of patching, finish blending, or damage
-    into sheathing/insulation. Moisture and rot expand scope quickly.
-  </p>
-
-  <h3>Is it cheaper to patch everything instead of replacing boards?</h3>
-  <p>
-    Patching is cheaper upfront, but repeated pecking or soft wood often fails. When wood is compromised, replacement
-    is typically the lower-cost long-term option.
-  </p>
-
-  <h3>Do woodpecker holes always mean insects?</h3>
-  <p>
-    No. Woodpeckers also drum for territory and target resonant surfaces. Treat insects only when clear evidence exists,
-    and use physical exclusion to prevent repeat damage.
-  </p>
 </section>
 """
 
 HOWTO_INNER = """
 <section>
-
-  <p>Exterior Siding &amp; Trim Repair</p>
-
-  <h1>How to Repair Woodpecker Damage (Cedar Siding, Trim, and Roofs) — And Stop It for Good</h1>
-
-  <p>
-    Woodpecker damage can look minor at first, but even small holes can allow water into siding, trim,
-    and roof structures, leading to swelling, rot, and long-term structural issues. Repairing the damage
-    correctly — and preventing repeat attacks — is the key to protecting your home.
-  </p>
-
-  <p>
-    This guide explains how to repair woodpecker damage properly, when patching is enough, when
-    replacement is required, and what actually works to keep woodpeckers from coming back.
-  </p>
-
-  <hr />
-
-  <h2>Do Woodpecker Holes Mean You Have Insects?</h2>
-
-  <p>Not always.</p>
-
-  <p>
-    While woodpeckers sometimes peck to find insects, many attacks on houses happen for other reasons:
-  </p>
-
-  <ul>
-    <li>Territorial drumming, especially in spring</li>
-    <li>Attraction to resonant surfaces like cedar siding or trim</li>
-    <li>Existing holes that encourage repeat pecking</li>
-  </ul>
-
-  <p>
-    Eliminating insects alone does not reliably stop woodpecker damage. In many cases, the bird will
-    continue pecking even when no infestation is present.
-  </p>
-
-  <p>
-    <strong>Bottom line:</strong> Repair the damage promptly and use physical exclusion to prevent
-    recurrence. Treat insects only if clear evidence exists.
-  </p>
-
-  <hr />
-
   <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
 
   <p>Before filling holes, determine how deep the damage goes.</p>
@@ -990,10 +913,21 @@ footer{border-top:1px solid var(--line);background:#fbfbfa}
 .footer-links{display:flex;gap:12px;flex-wrap:wrap}
 .footer-links a{color:var(--muted);text-decoration:none;font-size:13px}
 .small{color:var(--muted);font-size:12px}
+
+/* ---------- TABLES (added) ---------- */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+thead th{background:var(--soft);color:var(--ink);font-size:13px;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink)}
+tbody tr:last-child td{border-bottom:none}
+
 @media (max-width:640px){
   .topbar-inner{flex-direction:column;align-items:stretch;gap:10px}
   .nav{justify-content:center}
   .nav .btn{width:100%;text-align:center}
+
+  /* ---------- TABLES (mobile scroll) ---------- */
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  table{min-width:720px}
 }
 """.strip()
 
@@ -1197,14 +1131,15 @@ def make_section(*, headings: tuple[str, ...], paras: tuple[str, ...]) -> str:
   return "\n".join(parts)
 
 
-def location_cost_section(city: str, st: str, col: float, home_href: str) -> str:
+def location_cost_section(city: str="", st: str="", col: float=1) -> str:
+  rep = f" in {city}, {st}" if city and st else ""
   cost_lo = f"<strong>${int(CONFIG.cost_low * col)}</strong>"
   cost_hi = f"<strong>${int(CONFIG.cost_high * col)}</strong>"
 
-  h2 = CONFIG.location_cost_h2.replace("{City, State}", f"{city}, {st}")
+  h2 = CONFIG.location_cost_h2.replace("{loc}", rep)
   p = (
     CONFIG.location_cost_p[COPY_IDX]
-    .replace("{City, State}", f"{city}, {st}")
+    .replace("{loc}", rep)
     .replace("{cost_lo}", cost_lo)
     .replace("{cost_hi}", cost_hi)
   )
@@ -1269,7 +1204,7 @@ def contact_page_html(*, mode: Mode) -> str:
 def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str) -> str:
   inner = (
     make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
-    + location_cost_section(city, st, col, home_href=href_home(mode))
+    + location_cost_section(city, st, col)
   )
 
   return make_page(
@@ -1282,7 +1217,7 @@ def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str
   )
 
 def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
-  inner = COST_INNER
+  inner = location_cost_section() + COST_INNER
   if include_city_index:
     links = "\n".join(
       f'<li><a href="{esc(cost_city_href(mode, c, s))}">{esc(c)}, {esc(s)}</a></li>'
@@ -1321,18 +1256,7 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
   canonical = f"/cost/{slugify(city)}-{slugify(st)}/"
   h1 = clamp_title(f"{CONFIG.cost_title} in {city}, {st}", 70)
 
-  inner = (
-    location_cost_section(city, st, col, home_href=href_home(mode))
-    + "<hr />\n"
-    + make_section(
-      headings=CONFIG.cost_h2,
-      paras=tuple(
-        p.replace("{cost_lo}", f"<strong>${int(CONFIG.cost_low * col)}</strong>")
-         .replace("{cost_hi}", f"<strong>${int(CONFIG.cost_high * col)}</strong>")
-        for p in CONFIG.cost_p[COPY_IDX]
-      ),
-    )
-  )
+  inner = location_cost_section(city, st, col) + COST_INNER
 
   return make_page(
     mode=mode,
