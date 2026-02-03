@@ -2283,8 +2283,8 @@ def linkify_curly(text: str, *, home_href: str) -> str:
 
 Mode = str  # "regular" | "cost" | "state" | "subdomain"
 
-SITE_ORIGIN = (os.environ.get("SITE_ORIGIN") or "").rstrip("/")
-SUBDOMAIN_BASE = (os.environ.get("SUBDOMAIN_BASE") or "").strip().lower().strip(".")
+SITE_ORIGIN: str = os.getenv("SITE_ORIGIN", "https://woodpeckerdamagerepairspecialists.com")
+SUBDOMAIN_BASE: str = os.getenv("SUBDOMAIN_BASE", "woodpeckerdamagerepairspecialists.com")
 
 # ============================================================
 # COPY VARIANTS (1..5) selected by mode (override with env)
@@ -3163,7 +3163,7 @@ def build_regular_city_only(*, out: Path) -> None:
         nav_key="home",
         sub=CONFIG.h1_sub,
         inner=(
-          location_cost_section(city, st, col, home_href=href_home(mode))
+          location_cost_section(city, st, col)
           + "<hr />\n"
           + make_section(headings=CONFIG.main_h2, paras=CONFIG.main_p[COPY_IDX])
         ),
