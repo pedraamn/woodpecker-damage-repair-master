@@ -99,7 +99,7 @@ class SiteConfig:
 
   # Build / assets
   output_dir: Path = Path("public")
-  image_filename: str = "picture.png"  # sits next to generate.py
+  image_filename: str = "woodpecker-damage-epoxy-repair.jpg"  # sits next to generate.py
 
   # Identity
   base_name: str = "Woodpecker Damage Repair"
@@ -327,58 +327,59 @@ class SiteConfig:
 COST_INNER = """
 <section>
   <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Repair Scenario</th>
-        <th>Typical Cost Range</th>
-        <th>What You’re Paying For</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Small hole repair (up to ~2")</td>
-        <td>$150–$350</td>
-        <td>Clean-out, epoxy patch/plug, seal, spot finish</td>
-      </tr>
-      <tr>
-        <td>Medium hole repair (~2–6")</td>
-        <td>$300–$800</td>
-        <td>Deeper patch/plug, sealing, finish blending</td>
-      </tr>
-      <tr>
-        <td>Large hole repair (over ~6")</td>
-        <td>$600–$1,500</td>
-        <td>Section rebuild or partial replacement, sealing, finish</td>
-      </tr>
-      <tr>
-        <td>Replace a damaged siding board / small area</td>
-        <td>$500–$2,500</td>
-        <td>Remove/replace material, water management, finish match</td>
-      </tr>
-      <tr>
-        <td>Structural repair (sheathing/stud/insulation affected)</td>
-        <td>$1,000–$3,500+</td>
-        <td>Open-up, replace damaged wood, restore weather barrier</td>
-      </tr>
-      <tr>
-        <td>Interior wall repair (if penetrated)</td>
-        <td>$250–$900</td>
-        <td>Drywall patch, texture match, paint</td>
-      </tr>
-      <tr>
-        <td>Paint/stain blending (separate line item)</td>
-        <td>$150–$600</td>
-        <td>Prime + blend to hide repair</td>
-      </tr>
-      <tr>
-        <td>High access work (2nd story / steep roofline)</td>
-        <td>+15% to +50%</td>
-        <td>Setup time, safety, ladders or lift</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Repair Scenario</th>
+          <th>Typical Cost Range</th>
+          <th>What You’re Paying For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small hole repair (up to ~2")</td>
+          <td>$150–$350</td>
+          <td>Clean-out, epoxy patch/plug, seal, spot finish</td>
+        </tr>
+        <tr>
+          <td>Medium hole repair (~2–6")</td>
+          <td>$300–$800</td>
+          <td>Deeper patch/plug, sealing, finish blending</td>
+        </tr>
+        <tr>
+          <td>Large hole repair (over ~6")</td>
+          <td>$600–$1,500</td>
+          <td>Section rebuild or partial replacement, sealing, finish</td>
+        </tr>
+        <tr>
+          <td>Replace a damaged siding board / small area</td>
+          <td>$500–$2,500</td>
+          <td>Remove/replace material, water management, finish match</td>
+        </tr>
+        <tr>
+          <td>Structural repair (sheathing/stud/insulation affected)</td>
+          <td>$1,000–$3,500+</td>
+          <td>Open-up, replace damaged wood, restore weather barrier</td>
+        </tr>
+        <tr>
+          <td>Interior wall repair (if penetrated)</td>
+          <td>$250–$900</td>
+          <td>Drywall patch, texture match, paint</td>
+        </tr>
+        <tr>
+          <td>Paint/stain blending (separate line item)</td>
+          <td>$150–$600</td>
+          <td>Prime + blend to hide repair</td>
+        </tr>
+        <tr>
+          <td>High access work (2nd story / steep roofline)</td>
+          <td>+15% to +50%</td>
+          <td>Setup time, safety, ladders or lift</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <p>
     <strong>Typical total:</strong> $300–$2,500.
@@ -738,6 +739,17 @@ def slugify(s: str) -> str:
   s = re.sub(r"-{2,}", "-", s).strip("-")
   return s
 
+def filename_to_alt(filename: str) -> str:
+    if not filename:
+        return ""
+
+    alt = filename.lower()
+    alt = re.sub(r"\.[a-z0-9]+$", "", alt)
+    alt = re.sub(r"[-_]+", " ", alt)
+    alt = re.sub(r"\b\d+\b", "", alt)
+    alt = re.sub(r"\s+", " ", alt).strip()
+    return alt.capitalize()
+
 def clamp_title(title: str, max_chars: int = 70) -> str:
   if len(title) <= max_chars:
     return title
@@ -881,6 +893,7 @@ CSS = """
   --shadow:0 10px 30px rgba(17,24,39,.06); --shadow2:0 10px 24px rgba(17,24,39,.08);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);line-height:1.6}
 a{color:inherit}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(250,250,249,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
@@ -897,7 +910,7 @@ header{border-bottom:1px solid var(--line);background:radial-gradient(1200px 380
 .hero h1{margin:0;font-size:30px;letter-spacing:-.03em;line-height:1.18}
 .sub{margin:0;color:var(--muted);max-width:78ch;font-size:14px}
 main{max-width:var(--max);margin:0 auto;padding:22px 18px 46px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);max-width:100%}
 .img{margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft);box-shadow:var(--shadow2);width:100%}
 .img img{display:block;width:100%;height:auto}
 @media (min-width:900px){.img{max-width:50%;margin-left:auto;margin-right:auto}}
@@ -914,20 +927,23 @@ footer{border-top:1px solid var(--line);background:#fbfbfa}
 .footer-links a{color:var(--muted);text-decoration:none;font-size:13px}
 .small{color:var(--muted);font-size:12px}
 
-/* ---------- TABLES (added) ---------- */
-table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+/* ---------- TABLES (base look) ---------- */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;background:#fff;border:1px solid var(--line);border-radius:14px}
 thead th{background:var(--soft);color:var(--ink);font-size:13px;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink)}
 tbody tr:last-child td{border-bottom:none}
+
+/* wrapper that scrolls (only works if you wrap tables in .table-scroll) */
+.table-scroll{max-width:100%}
 
 @media (max-width:640px){
   .topbar-inner{flex-direction:column;align-items:stretch;gap:10px}
   .nav{justify-content:center}
   .nav .btn{width:100%;text-align:center}
 
-  /* ---------- TABLES (mobile scroll) ---------- */
-  .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  table{min-width:720px}
+  /* only the wrapper scrolls, NOT the whole page */
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .table-scroll table{min-width:720px}
 }
 """.strip()
 
@@ -1062,11 +1078,13 @@ def page_shell(
   footer_show_cost: bool = True,
   footer_show_howto: bool = True,
 ) -> str:
+  img_src = f"/{CONFIG.image_filename}"
+  img_alt = filename_to_alt(CONFIG.image_filename)
   img_html = ""
   if show_image:
     img_html = f"""
     <div class="img">
-      <img src="/{esc(CONFIG.image_filename)}" alt="Service image" loading="lazy" />
+      <img src="{img_src}" alt="{img_alt}" loading="lazy" />
     </div>
 """.rstrip()
 
