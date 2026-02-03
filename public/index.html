@@ -64,6 +64,89 @@ tbody tr:last-child td{border-bottom:none}
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-scroll table{min-width:720px}
 }
+
+/* -----------------------
+   CONTACT FORM (match first block)
+----------------------- */
+.form-grid{
+  margin-top:14px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr 320px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .form-grid{grid-template-columns:1fr}
+}
+
+.embed-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  background:var(--soft);
+}
+
+.nx-center{
+  display:flex;
+  justify-content:center; /* keep the small iframe centered */
+}
+
+/* Keep Networx at the required embedded size */
+#nx_form{
+  width:242px;
+  height:375px;
+}
+
+/* Force iframe to fill the fixed-size container */
+#networx_form_container iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+/* -----------------------
+   WHY BOX (match first block)
+----------------------- */
+.why-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 24px rgba(17,24,39,0.05);
+}
+.why-box h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+.why-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.why-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:13px;
+}
+.tick{
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(22,163,74,0.12);
+  border:1px solid rgba(22,163,74,0.22);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.tick:before{
+  content:"✓";
+  font-weight:900;
+  font-size:12px;
+}
   </style>
 </head>
 <body>
@@ -86,381 +169,74 @@ tbody tr:last-child td{border-bottom:none}
     <div class="img">
       <img src="/woodpecker-damage-epoxy-repair.jpg" alt="Woodpecker damage epoxy repair" loading="lazy" />
     </div>
-    <p>We focus on woodpecker damage repair for homeowners dealing with holes in siding, trim, and exterior wood. Our work seals woodpecker holes, restores affected areas, and helps prevent moisture intrusion and repeat damage. Get a fast quote and schedule service with a trusted local professional.</p>
+    <p>We offer professional woodpecker damage repair for homeowners facing holes in siding and exterior wood. Our repairs restore damaged sections, seal woodpecker holes, and help protect your home from ongoing damage. Get a fast estimate and book service with a reliable local pro.</p>
 <h2>What Kind of Damage Do Woodpeckers Cause to a House?</h2>
-<p>Woodpeckers commonly damage homes by boring holes into siding, trim, fascia, and corner boards, which can expose exterior surfaces to moisture and pests. Even minor holes can weaken exterior wood and cause paint or material breakdown when water repeatedly enters.</p>
+<p>Woodpeckers damage homes by pecking holes into siding, trim, fascia, and corner boards, which can leave the exterior vulnerable to moisture and pests. Over time, even small openings can weaken exterior wood and accelerate surface deterioration.</p>
 <h2>Why Are Woodpeckers Pecking My House?</h2>
-<p>Woodpeckers typically peck houses to look for insects, form a nesting cavity, or drum against the surface to mark territory. Homes with exterior wood, shaded conditions, or existing damage are more likely to experience repeat activity if the cause isn’t addressed.</p>
+<p>Houses are usually pecked by woodpeckers when birds are searching for insects, building nesting cavities, or drumming to signal territory. Structures with exterior wood or shaded, damaged areas are more likely to be targeted repeatedly.</p>
 <h2>What Do Woodpecker Holes Look Like in Siding or Trim?</h2>
-<p>Woodpecker holes usually show up as round openings, tight clusters of small holes, or deeper cavities created by repeated pecking. The size and grouping often reveal whether the bird was briefly probing or engaging in ongoing nesting or feeding.</p>
+<p>Woodpecker holes often appear as smooth, round openings, tight groupings of small holes, or deeper cavities formed from repeated pecking. These patterns help distinguish brief activity from ongoing nesting or feeding behavior.</p>
 <h2>What Happens If Woodpecker Damage Is Left Unrepaired?</h2>
-<p>When woodpecker damage is left unrepaired, moisture can pass through the holes and slowly deteriorate nearby materials. Over time, this can lead to rot, peeling paint, and broader exterior damage that requires more extensive repairs.</p>
+<p>Leaving woodpecker damage unrepaired allows water to pass through the holes and slowly damage surrounding materials. Continued exposure can result in rot, peeling finishes, and a much larger repair area over time.</p>
 <h2>Does Woodpecker Activity on a House Mean Termites?</h2>
-<p>Woodpecker activity doesn’t always indicate termites, but it can point to insects living in or near the wood. Since birds may be targeting ants or larvae, evaluating the wood before sealing holes helps avoid trapping a hidden issue.</p>
+<p>Woodpecker activity alone doesn’t confirm termites, but it can indicate insects present in the wood. Since birds may be feeding on ants or larvae, inspecting the wood before sealing repairs helps prevent sealing in a problem.</p>
 <h2>Is Woodpecker Damage Covered by Homeowners Insurance?</h2>
-<p>Whether woodpecker damage is covered depends on how a homeowners insurance policy handles animal-related exterior damage. Some policies may cover sudden events, while others treat gradual damage as maintenance.</p>
+<p>Whether homeowners insurance covers woodpecker damage depends on policy terms and how the damage is classified. Some policies cover sudden animal damage, while gradual issues may fall under maintenance exclusions.</p>
 <h2>How Do You Keep Woodpeckers Off Your House After Repairs?</h2>
-<p>Preventing woodpeckers from returning after repairs usually means removing what attracted them and limiting future access. Treating insect problems, reinforcing repaired sections, and protecting exposed exterior wood can reduce repeat damage.</p>
+<p>Reducing repeat woodpecker damage after repairs usually requires removing attractants and limiting access. Addressing insect activity, reinforcing repaired sections, and protecting exterior wood can help discourage return visits.</p>
 <hr />
-<h2>Choose your city</h2>
-<p class="muted">We provide services nationwide, including in the following cities:</p>
+<h2>Choose your state</h2>
+<p class="muted">We provide services nationwide, including in the following states:</p>
 <ul class="city-grid">
-<li><a href="/new-york-ny/">New York, NY</a></li>
-<li><a href="/los-angeles-ca/">Los Angeles, CA</a></li>
-<li><a href="/chicago-il/">Chicago, IL</a></li>
-<li><a href="/dallas-tx/">Dallas, TX</a></li>
-<li><a href="/fort-worth-tx/">Fort Worth, TX</a></li>
-<li><a href="/philadelphia-pa/">Philadelphia, PA</a></li>
-<li><a href="/houston-tx/">Houston, TX</a></li>
-<li><a href="/atlanta-ga/">Atlanta, GA</a></li>
-<li><a href="/washington-dc/">Washington, DC</a></li>
-<li><a href="/hagerstown-md/">Hagerstown, MD</a></li>
-<li><a href="/boston-ma/">Boston, MA</a></li>
-<li><a href="/manchester-nh/">Manchester, NH</a></li>
-<li><a href="/san-francisco-ca/">San Francisco, CA</a></li>
-<li><a href="/oakland-ca/">Oakland, CA</a></li>
-<li><a href="/san-jose-ca/">San Jose, CA</a></li>
-<li><a href="/tampa-fl/">Tampa, FL</a></li>
-<li><a href="/st-petersburg-fl/">St. Petersburg, FL</a></li>
-<li><a href="/sarasota-fl/">Sarasota, FL</a></li>
-<li><a href="/phoenix-az/">Phoenix, AZ</a></li>
-<li><a href="/prescott-az/">Prescott, AZ</a></li>
-<li><a href="/seattle-wa/">Seattle, WA</a></li>
-<li><a href="/tacoma-wa/">Tacoma, WA</a></li>
-<li><a href="/detroit-mi/">Detroit, MI</a></li>
-<li><a href="/orlando-fl/">Orlando, FL</a></li>
-<li><a href="/daytona-beach-fl/">Daytona Beach, FL</a></li>
-<li><a href="/melbourne-fl/">Melbourne, FL</a></li>
-<li><a href="/minneapolis-mn/">Minneapolis, MN</a></li>
-<li><a href="/st-paul-mn/">St. Paul, MN</a></li>
-<li><a href="/denver-co/">Denver, CO</a></li>
-<li><a href="/miami-fl/">Miami, FL</a></li>
-<li><a href="/fort-lauderdale-fl/">Fort Lauderdale, FL</a></li>
-<li><a href="/cleveland-oh/">Cleveland, OH</a></li>
-<li><a href="/akron-oh/">Akron, OH</a></li>
-<li><a href="/canton-oh/">Canton, OH</a></li>
-<li><a href="/sacramento-ca/">Sacramento, CA</a></li>
-<li><a href="/stockton-ca/">Stockton, CA</a></li>
-<li><a href="/modesto-ca/">Modesto, CA</a></li>
-<li><a href="/charlotte-nc/">Charlotte, NC</a></li>
-<li><a href="/raleigh-nc/">Raleigh, NC</a></li>
-<li><a href="/durham-nc/">Durham, NC</a></li>
-<li><a href="/fayetteville-nc/">Fayetteville, NC</a></li>
-<li><a href="/portland-or/">Portland, OR</a></li>
-<li><a href="/st-louis-mo/">St. Louis, MO</a></li>
-<li><a href="/indianapolis-in/">Indianapolis, IN</a></li>
-<li><a href="/nashville-tn/">Nashville, TN</a></li>
-<li><a href="/pittsburgh-pa/">Pittsburgh, PA</a></li>
-<li><a href="/salt-lake-city-ut/">Salt Lake City, UT</a></li>
-<li><a href="/baltimore-md/">Baltimore, MD</a></li>
-<li><a href="/san-diego-ca/">San Diego, CA</a></li>
-<li><a href="/san-antonio-tx/">San Antonio, TX</a></li>
-<li><a href="/hartford-ct/">Hartford, CT</a></li>
-<li><a href="/new-haven-ct/">New Haven, CT</a></li>
-<li><a href="/kansas-city-mo/">Kansas City, MO</a></li>
-<li><a href="/austin-tx/">Austin, TX</a></li>
-<li><a href="/columbus-oh/">Columbus, OH</a></li>
-<li><a href="/greenville-sc/">Greenville, SC</a></li>
-<li><a href="/spartanburg-sc/">Spartanburg, SC</a></li>
-<li><a href="/asheville-nc/">Asheville, NC</a></li>
-<li><a href="/anderson-sc/">Anderson, SC</a></li>
-<li><a href="/cincinnati-oh/">Cincinnati, OH</a></li>
-<li><a href="/milwaukee-wi/">Milwaukee, WI</a></li>
-<li><a href="/west-palm-beach-fl/">West Palm Beach, FL</a></li>
-<li><a href="/fort-pierce-fl/">Fort Pierce, FL</a></li>
-<li><a href="/las-vegas-nv/">Las Vegas, NV</a></li>
-<li><a href="/jacksonville-fl/">Jacksonville, FL</a></li>
-<li><a href="/harrisburg-pa/">Harrisburg, PA</a></li>
-<li><a href="/lancaster-pa/">Lancaster, PA</a></li>
-<li><a href="/lebanon-pa/">Lebanon, PA</a></li>
-<li><a href="/york-pa/">York, PA</a></li>
-<li><a href="/grand-rapids-mi/">Grand Rapids, MI</a></li>
-<li><a href="/kalamazoo-mi/">Kalamazoo, MI</a></li>
-<li><a href="/battle-creek-mi/">Battle Creek, MI</a></li>
-<li><a href="/norfolk-va/">Norfolk, VA</a></li>
-<li><a href="/portsmouth-va/">Portsmouth, VA</a></li>
-<li><a href="/newport-news-va/">Newport News, VA</a></li>
-<li><a href="/birmingham-al/">Birmingham, AL</a></li>
-<li><a href="/anniston-al/">Anniston, AL</a></li>
-<li><a href="/tuscaloosa-al/">Tuscaloosa, AL</a></li>
-<li><a href="/greensboro-nc/">Greensboro, NC</a></li>
-<li><a href="/high-point-nc/">High Point, NC</a></li>
-<li><a href="/winston-salem-nc/">Winston-Salem, NC</a></li>
-<li><a href="/oklahoma-city-ok/">Oklahoma City, OK</a></li>
-<li><a href="/albuquerque-nm/">Albuquerque, NM</a></li>
-<li><a href="/santa-fe-nm/">Santa Fe, NM</a></li>
-<li><a href="/louisville-ky/">Louisville, KY</a></li>
-<li><a href="/new-orleans-la/">New Orleans, LA</a></li>
-<li><a href="/memphis-tn/">Memphis, TN</a></li>
-<li><a href="/providence-ri/">Providence, RI</a></li>
-<li><a href="/new-bedford-ma/">New Bedford, MA</a></li>
-<li><a href="/fort-myers-fl/">Fort Myers, FL</a></li>
-<li><a href="/naples-fl/">Naples, FL</a></li>
-<li><a href="/buffalo-ny/">Buffalo, NY</a></li>
-<li><a href="/fresno-ca/">Fresno, CA</a></li>
-<li><a href="/visalia-ca/">Visalia, CA</a></li>
-<li><a href="/richmond-va/">Richmond, VA</a></li>
-<li><a href="/petersburg-va/">Petersburg, VA</a></li>
-<li><a href="/mobile-al/">Mobile, AL</a></li>
-<li><a href="/pensacola-fl/">Pensacola, FL</a></li>
-<li><a href="/fort-walton-beach-fl/">Fort Walton Beach, FL</a></li>
-<li><a href="/little-rock-ar/">Little Rock, AR</a></li>
-<li><a href="/pine-bluff-ar/">Pine Bluff, AR</a></li>
-<li><a href="/wilkes-barre-pa/">Wilkes-Barre, PA</a></li>
-<li><a href="/scranton-pa/">Scranton, PA</a></li>
-<li><a href="/hazleton-pa/">Hazleton, PA</a></li>
-<li><a href="/knoxville-tn/">Knoxville, TN</a></li>
-<li><a href="/tulsa-ok/">Tulsa, OK</a></li>
-<li><a href="/albany-ny/">Albany, NY</a></li>
-<li><a href="/schenectady-ny/">Schenectady, NY</a></li>
-<li><a href="/troy-ny/">Troy, NY</a></li>
-<li><a href="/lexington-ky/">Lexington, KY</a></li>
-<li><a href="/dayton-oh/">Dayton, OH</a></li>
-<li><a href="/tucson-az/">Tucson, AZ</a></li>
-<li><a href="/sierra-vista-az/">Sierra Vista, AZ</a></li>
-<li><a href="/spokane-wa/">Spokane, WA</a></li>
-<li><a href="/des-moines-ia/">Des Moines, IA</a></li>
-<li><a href="/ames-ia/">Ames, IA</a></li>
-<li><a href="/green-bay-wi/">Green Bay, WI</a></li>
-<li><a href="/appleton-wi/">Appleton, WI</a></li>
-<li><a href="/honolulu-hi/">Honolulu, HI</a></li>
-<li><a href="/roanoke-va/">Roanoke, VA</a></li>
-<li><a href="/lynchburg-va/">Lynchburg, VA</a></li>
-<li><a href="/wichita-ks/">Wichita, KS</a></li>
-<li><a href="/hutchinson-ks/">Hutchinson, KS</a></li>
-<li><a href="/flint-mi/">Flint, MI</a></li>
-<li><a href="/saginaw-mi/">Saginaw, MI</a></li>
-<li><a href="/bay-city-mi/">Bay City, MI</a></li>
-<li><a href="/omaha-ne/">Omaha, NE</a></li>
-<li><a href="/springfield-mo/">Springfield, MO</a></li>
-<li><a href="/huntsville-al/">Huntsville, AL</a></li>
-<li><a href="/decatur-al/">Decatur, AL</a></li>
-<li><a href="/florence-al/">Florence, AL</a></li>
-<li><a href="/columbia-sc/">Columbia, SC</a></li>
-<li><a href="/madison-wi/">Madison, WI</a></li>
-<li><a href="/portland-me/">Portland, ME</a></li>
-<li><a href="/auburn-me/">Auburn, ME</a></li>
-<li><a href="/rochester-ny/">Rochester, NY</a></li>
-<li><a href="/harlingen-tx/">Harlingen, TX</a></li>
-<li><a href="/weslaco-tx/">Weslaco, TX</a></li>
-<li><a href="/brownsville-tx/">Brownsville, TX</a></li>
-<li><a href="/mcallen-tx/">McAllen, TX</a></li>
-<li><a href="/toledo-oh/">Toledo, OH</a></li>
-<li><a href="/charleston-wv/">Charleston, WV</a></li>
-<li><a href="/huntington-wv/">Huntington, WV</a></li>
-<li><a href="/waco-tx/">Waco, TX</a></li>
-<li><a href="/temple-tx/">Temple, TX</a></li>
-<li><a href="/bryan-tx/">Bryan, TX</a></li>
-<li><a href="/savannah-ga/">Savannah, GA</a></li>
-<li><a href="/charleston-sc/">Charleston, SC</a></li>
-<li><a href="/chattanooga-tn/">Chattanooga, TN</a></li>
-<li><a href="/colorado-springs-co/">Colorado Springs, CO</a></li>
-<li><a href="/pueblo-co/">Pueblo, CO</a></li>
-<li><a href="/syracuse-ny/">Syracuse, NY</a></li>
-<li><a href="/el-paso-tx/">El Paso, TX</a></li>
-<li><a href="/las-cruces-nm/">Las Cruces, NM</a></li>
-<li><a href="/paducah-ky/">Paducah, KY</a></li>
-<li><a href="/cape-girardeau-mo/">Cape Girardeau, MO</a></li>
-<li><a href="/harrisburg-il/">Harrisburg, IL</a></li>
-<li><a href="/shreveport-la/">Shreveport, LA</a></li>
-<li><a href="/texarkana-tx/">Texarkana, TX</a></li>
-<li><a href="/champaign-il/">Champaign, IL</a></li>
-<li><a href="/urbana-il/">Urbana, IL</a></li>
-<li><a href="/springfield-il/">Springfield, IL</a></li>
-<li><a href="/decatur-il/">Decatur, IL</a></li>
-<li><a href="/burlington-vt/">Burlington, VT</a></li>
-<li><a href="/plattsburgh-ny/">Plattsburgh, NY</a></li>
-<li><a href="/cedar-rapids-ia/">Cedar Rapids, IA</a></li>
-<li><a href="/waterloo-ia/">Waterloo, IA</a></li>
-<li><a href="/iowa-city-ia/">Iowa City, IA</a></li>
-<li><a href="/dubuque-ia/">Dubuque, IA</a></li>
-<li><a href="/baton-rouge-la/">Baton Rouge, LA</a></li>
-<li><a href="/fort-smith-ar/">Fort Smith, AR</a></li>
-<li><a href="/fayetteville-ar/">Fayetteville, AR</a></li>
-<li><a href="/springdale-ar/">Springdale, AR</a></li>
-<li><a href="/rogers-ar/">Rogers, AR</a></li>
-<li><a href="/myrtle-beach-sc/">Myrtle Beach, SC</a></li>
-<li><a href="/florence-sc/">Florence, SC</a></li>
-<li><a href="/boise-id/">Boise, ID</a></li>
-<li><a href="/jackson-ms/">Jackson, MS</a></li>
-<li><a href="/south-bend-in/">South Bend, IN</a></li>
-<li><a href="/elkhart-in/">Elkhart, IN</a></li>
-<li><a href="/johnson-city-tn/">Johnson City, TN</a></li>
-<li><a href="/kingsport-tn/">Kingsport, TN</a></li>
-<li><a href="/bristol-va/">Bristol, VA</a></li>
-<li><a href="/greenville-nc/">Greenville, NC</a></li>
-<li><a href="/new-bern-nc/">New Bern, NC</a></li>
-<li><a href="/washington-nc/">Washington, NC</a></li>
-<li><a href="/reno-nv/">Reno, NV</a></li>
-<li><a href="/davenport-ia/">Davenport, IA</a></li>
-<li><a href="/rock-island-il/">Rock Island, IL</a></li>
-<li><a href="/moline-il/">Moline, IL</a></li>
-<li><a href="/tallahassee-fl/">Tallahassee, FL</a></li>
-<li><a href="/thomasville-ga/">Thomasville, GA</a></li>
-<li><a href="/tyler-tx/">Tyler, TX</a></li>
-<li><a href="/longview-tx/">Longview, TX</a></li>
-<li><a href="/lufkin-tx/">Lufkin, TX</a></li>
-<li><a href="/nacogdoches-tx/">Nacogdoches, TX</a></li>
-<li><a href="/lincoln-ne/">Lincoln, NE</a></li>
-<li><a href="/hastings-ne/">Hastings, NE</a></li>
-<li><a href="/kearney-ne/">Kearney, NE</a></li>
-<li><a href="/augusta-ga/">Augusta, GA</a></li>
-<li><a href="/aiken-sc/">Aiken, SC</a></li>
-<li><a href="/evansville-in/">Evansville, IN</a></li>
-<li><a href="/fort-wayne-in/">Fort Wayne, IN</a></li>
-<li><a href="/sioux-falls-sd/">Sioux Falls, SD</a></li>
-<li><a href="/mitchell-sd/">Mitchell, SD</a></li>
-<li><a href="/johnstown-pa/">Johnstown, PA</a></li>
-<li><a href="/altoona-pa/">Altoona, PA</a></li>
-<li><a href="/state-college-pa/">State College, PA</a></li>
-<li><a href="/fargo-nd/">Fargo, ND</a></li>
-<li><a href="/valley-city-nd/">Valley City, ND</a></li>
-<li><a href="/yakima-wa/">Yakima, WA</a></li>
-<li><a href="/pasco-wa/">Pasco, WA</a></li>
-<li><a href="/richland-wa/">Richland, WA</a></li>
-<li><a href="/kennewick-wa/">Kennewick, WA</a></li>
-<li><a href="/springfield-ma/">Springfield, MA</a></li>
-<li><a href="/holyoke-ma/">Holyoke, MA</a></li>
-<li><a href="/traverse-city-mi/">Traverse City, MI</a></li>
-<li><a href="/cadillac-mi/">Cadillac, MI</a></li>
-<li><a href="/lansing-mi/">Lansing, MI</a></li>
-<li><a href="/youngstown-oh/">Youngstown, OH</a></li>
-<li><a href="/macon-ga/">Macon, GA</a></li>
-<li><a href="/eugene-or/">Eugene, OR</a></li>
-<li><a href="/montgomery-al/">Montgomery, AL</a></li>
-<li><a href="/selma-al/">Selma, AL</a></li>
-<li><a href="/peoria-il/">Peoria, IL</a></li>
-<li><a href="/bloomington-il/">Bloomington, IL</a></li>
-<li><a href="/santa-barbara-ca/">Santa Barbara, CA</a></li>
-<li><a href="/santa-maria-ca/">Santa Maria, CA</a></li>
-<li><a href="/san-luis-obispo-ca/">San Luis Obispo, CA</a></li>
-<li><a href="/lafayette-la/">Lafayette, LA</a></li>
-<li><a href="/bakersfield-ca/">Bakersfield, CA</a></li>
-<li><a href="/wilmington-nc/">Wilmington, NC</a></li>
-<li><a href="/columbus-ga/">Columbus, GA</a></li>
-<li><a href="/monterey-ca/">Monterey, CA</a></li>
-<li><a href="/salinas-ca/">Salinas, CA</a></li>
-<li><a href="/la-crosse-wi/">La Crosse, WI</a></li>
-<li><a href="/eau-claire-wi/">Eau Claire, WI</a></li>
-<li><a href="/corpus-christi-tx/">Corpus Christi, TX</a></li>
-<li><a href="/salisbury-md/">Salisbury, MD</a></li>
-<li><a href="/amarillo-tx/">Amarillo, TX</a></li>
-<li><a href="/wausau-wi/">Wausau, WI</a></li>
-<li><a href="/rhinelander-wi/">Rhinelander, WI</a></li>
-<li><a href="/columbus-ms/">Columbus, MS</a></li>
-<li><a href="/tupelo-ms/">Tupelo, MS</a></li>
-<li><a href="/west-point-ms/">West Point, MS</a></li>
-<li><a href="/starkville-ms/">Starkville, MS</a></li>
-<li><a href="/columbia-mo/">Columbia, MO</a></li>
-<li><a href="/jefferson-city-mo/">Jefferson City, MO</a></li>
-<li><a href="/chico-ca/">Chico, CA</a></li>
-<li><a href="/redding-ca/">Redding, CA</a></li>
-<li><a href="/rockford-il/">Rockford, IL</a></li>
-<li><a href="/duluth-mn/">Duluth, MN</a></li>
-<li><a href="/superior-wi/">Superior, WI</a></li>
-<li><a href="/medford-or/">Medford, OR</a></li>
-<li><a href="/klamath-falls-or/">Klamath Falls, OR</a></li>
-<li><a href="/lubbock-tx/">Lubbock, TX</a></li>
-<li><a href="/topeka-ks/">Topeka, KS</a></li>
-<li><a href="/monroe-la/">Monroe, LA</a></li>
-<li><a href="/el-dorado-ar/">El Dorado, AR</a></li>
-<li><a href="/beaumont-tx/">Beaumont, TX</a></li>
-<li><a href="/port-arthur-tx/">Port Arthur, TX</a></li>
-<li><a href="/odessa-tx/">Odessa, TX</a></li>
-<li><a href="/midland-tx/">Midland, TX</a></li>
-<li><a href="/palm-springs-ca/">Palm Springs, CA</a></li>
-<li><a href="/anchorage-ak/">Anchorage, AK</a></li>
-<li><a href="/minot-nd/">Minot, ND</a></li>
-<li><a href="/bismarck-nd/">Bismarck, ND</a></li>
-<li><a href="/dickinson-nd/">Dickinson, ND</a></li>
-<li><a href="/williston-nd/">Williston, ND</a></li>
-<li><a href="/panama-city-fl/">Panama City, FL</a></li>
-<li><a href="/sioux-city-ia/">Sioux City, IA</a></li>
-<li><a href="/wichita-falls-tx/">Wichita Falls, TX</a></li>
-<li><a href="/lawton-ok/">Lawton, OK</a></li>
-<li><a href="/joplin-mo/">Joplin, MO</a></li>
-<li><a href="/pittsburg-ks/">Pittsburg, KS</a></li>
-<li><a href="/albany-ga/">Albany, GA</a></li>
-<li><a href="/rochester-mn/">Rochester, MN</a></li>
-<li><a href="/mason-city-ia/">Mason City, IA</a></li>
-<li><a href="/austin-mn/">Austin, MN</a></li>
-<li><a href="/erie-pa/">Erie, PA</a></li>
-<li><a href="/idaho-falls-id/">Idaho Falls, ID</a></li>
-<li><a href="/pocatello-id/">Pocatello, ID</a></li>
-<li><a href="/jackson-wy/">Jackson, WY</a></li>
-<li><a href="/bangor-me/">Bangor, ME</a></li>
-<li><a href="/gainesville-fl/">Gainesville, FL</a></li>
-<li><a href="/biloxi-ms/">Biloxi, MS</a></li>
-<li><a href="/gulfport-ms/">Gulfport, MS</a></li>
-<li><a href="/terre-haute-in/">Terre Haute, IN</a></li>
-<li><a href="/sherman-tx/">Sherman, TX</a></li>
-<li><a href="/ada-ok/">Ada, OK</a></li>
-<li><a href="/missoula-mt/">Missoula, MT</a></li>
-<li><a href="/binghamton-ny/">Binghamton, NY</a></li>
-<li><a href="/wheeling-wv/">Wheeling, WV</a></li>
-<li><a href="/steubenville-oh/">Steubenville, OH</a></li>
-<li><a href="/yuma-az/">Yuma, AZ</a></li>
-<li><a href="/el-centro-ca/">El Centro, CA</a></li>
-<li><a href="/billings-mt/">Billings, MT</a></li>
-<li><a href="/abilene-tx/">Abilene, TX</a></li>
-<li><a href="/sweetwater-tx/">Sweetwater, TX</a></li>
-<li><a href="/bluefield-wv/">Bluefield, WV</a></li>
-<li><a href="/beckley-wv/">Beckley, WV</a></li>
-<li><a href="/oak-hill-wv/">Oak Hill, WV</a></li>
-<li><a href="/hattiesburg-ms/">Hattiesburg, MS</a></li>
-<li><a href="/laurel-ms/">Laurel, MS</a></li>
-<li><a href="/rapid-city-sd/">Rapid City, SD</a></li>
-<li><a href="/dothan-al/">Dothan, AL</a></li>
-<li><a href="/utica-ny/">Utica, NY</a></li>
-<li><a href="/clarksburg-wv/">Clarksburg, WV</a></li>
-<li><a href="/weston-wv/">Weston, WV</a></li>
-<li><a href="/harrisonburg-va/">Harrisonburg, VA</a></li>
-<li><a href="/jackson-tn/">Jackson, TN</a></li>
-<li><a href="/quincy-il/">Quincy, IL</a></li>
-<li><a href="/hannibal-mo/">Hannibal, MO</a></li>
-<li><a href="/keokuk-ia/">Keokuk, IA</a></li>
-<li><a href="/charlottesville-va/">Charlottesville, VA</a></li>
-<li><a href="/lake-charles-la/">Lake Charles, LA</a></li>
-<li><a href="/elmira-ny/">Elmira, NY</a></li>
-<li><a href="/corning-ny/">Corning, NY</a></li>
-<li><a href="/watertown-ny/">Watertown, NY</a></li>
-<li><a href="/bowling-green-ky/">Bowling Green, KY</a></li>
-<li><a href="/marquette-mi/">Marquette, MI</a></li>
-<li><a href="/jonesboro-ar/">Jonesboro, AR</a></li>
-<li><a href="/alexandria-la/">Alexandria, LA</a></li>
-<li><a href="/laredo-tx/">Laredo, TX</a></li>
-<li><a href="/butte-mt/">Butte, MT</a></li>
-<li><a href="/bozeman-mt/">Bozeman, MT</a></li>
-<li><a href="/bend-or/">Bend, OR</a></li>
-<li><a href="/grand-junction-co/">Grand Junction, CO</a></li>
-<li><a href="/montrose-co/">Montrose, CO</a></li>
-<li><a href="/twin-falls-id/">Twin Falls, ID</a></li>
-<li><a href="/lafayette-in/">Lafayette, IN</a></li>
-<li><a href="/lima-oh/">Lima, OH</a></li>
-<li><a href="/great-falls-mt/">Great Falls, MT</a></li>
-<li><a href="/meridian-ms/">Meridian, MS</a></li>
-<li><a href="/cheyenne-wy/">Cheyenne, WY</a></li>
-<li><a href="/scottsbluff-ne/">Scottsbluff, NE</a></li>
-<li><a href="/parkersburg-wv/">Parkersburg, WV</a></li>
-<li><a href="/greenwood-ms/">Greenwood, MS</a></li>
-<li><a href="/greenville-ms/">Greenville, MS</a></li>
-<li><a href="/eureka-ca/">Eureka, CA</a></li>
-<li><a href="/san-angelo-tx/">San Angelo, TX</a></li>
-<li><a href="/casper-wy/">Casper, WY</a></li>
-<li><a href="/riverton-wy/">Riverton, WY</a></li>
-<li><a href="/mankato-mn/">Mankato, MN</a></li>
-<li><a href="/ottumwa-ia/">Ottumwa, IA</a></li>
-<li><a href="/kirksville-mo/">Kirksville, MO</a></li>
-<li><a href="/st-joseph-mo/">St. Joseph, MO</a></li>
-<li><a href="/fairbanks-ak/">Fairbanks, AK</a></li>
-<li><a href="/zanesville-oh/">Zanesville, OH</a></li>
-<li><a href="/victoria-tx/">Victoria, TX</a></li>
-<li><a href="/helena-mt/">Helena, MT</a></li>
-<li><a href="/presque-isle-me/">Presque Isle, ME</a></li>
-<li><a href="/juneau-ak/">Juneau, AK</a></li>
-<li><a href="/alpena-mi/">Alpena, MI</a></li>
-<li><a href="/north-platte-ne/">North Platte, NE</a></li>
-<li><a href="/glendive-mt/">Glendive, MT</a></li>
+<li><a href="/ak/">Alaska</a></li>
+<li><a href="/al/">Alabama</a></li>
+<li><a href="/ar/">Arkansas</a></li>
+<li><a href="/az/">Arizona</a></li>
+<li><a href="/ca/">California</a></li>
+<li><a href="/co/">Colorado</a></li>
+<li><a href="/ct/">Connecticut</a></li>
+<li><a href="/dc/">District of Columbia</a></li>
+<li><a href="/fl/">Florida</a></li>
+<li><a href="/ga/">Georgia</a></li>
+<li><a href="/hi/">Hawaii</a></li>
+<li><a href="/ia/">Iowa</a></li>
+<li><a href="/id/">Idaho</a></li>
+<li><a href="/il/">Illinois</a></li>
+<li><a href="/in/">Indiana</a></li>
+<li><a href="/ks/">Kansas</a></li>
+<li><a href="/ky/">Kentucky</a></li>
+<li><a href="/la/">Louisiana</a></li>
+<li><a href="/ma/">Massachusetts</a></li>
+<li><a href="/md/">Maryland</a></li>
+<li><a href="/me/">Maine</a></li>
+<li><a href="/mi/">Michigan</a></li>
+<li><a href="/mn/">Minnesota</a></li>
+<li><a href="/mo/">Missouri</a></li>
+<li><a href="/ms/">Mississippi</a></li>
+<li><a href="/mt/">Montana</a></li>
+<li><a href="/nc/">North Carolina</a></li>
+<li><a href="/nd/">North Dakota</a></li>
+<li><a href="/ne/">Nebraska</a></li>
+<li><a href="/nh/">New Hampshire</a></li>
+<li><a href="/nm/">New Mexico</a></li>
+<li><a href="/nv/">Nevada</a></li>
+<li><a href="/ny/">New York</a></li>
+<li><a href="/oh/">Ohio</a></li>
+<li><a href="/ok/">Oklahoma</a></li>
+<li><a href="/or/">Oregon</a></li>
+<li><a href="/pa/">Pennsylvania</a></li>
+<li><a href="/ri/">Rhode Island</a></li>
+<li><a href="/sc/">South Carolina</a></li>
+<li><a href="/sd/">South Dakota</a></li>
+<li><a href="/tn/">Tennessee</a></li>
+<li><a href="/tx/">Texas</a></li>
+<li><a href="/ut/">Utah</a></li>
+<li><a href="/va/">Virginia</a></li>
+<li><a href="/vt/">Vermont</a></li>
+<li><a href="/wa/">Washington</a></li>
+<li><a href="/wi/">Wisconsin</a></li>
+<li><a href="/wv/">West Virginia</a></li>
+<li><a href="/wy/">Wyoming</a></li>
 </ul>
 
   </section>

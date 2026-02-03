@@ -64,6 +64,89 @@ tbody tr:last-child td{border-bottom:none}
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-scroll table{min-width:720px}
 }
+
+/* -----------------------
+   CONTACT FORM (match first block)
+----------------------- */
+.form-grid{
+  margin-top:14px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr 320px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .form-grid{grid-template-columns:1fr}
+}
+
+.embed-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  background:var(--soft);
+}
+
+.nx-center{
+  display:flex;
+  justify-content:center; /* keep the small iframe centered */
+}
+
+/* Keep Networx at the required embedded size */
+#nx_form{
+  width:242px;
+  height:375px;
+}
+
+/* Force iframe to fill the fixed-size container */
+#networx_form_container iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+/* -----------------------
+   WHY BOX (match first block)
+----------------------- */
+.why-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 24px rgba(17,24,39,0.05);
+}
+.why-box h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+.why-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.why-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:13px;
+}
+.tick{
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(22,163,74,0.12);
+  border:1px solid rgba(22,163,74,0.22);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.tick:before{
+  content:"✓";
+  font-weight:900;
+  font-size:12px;
+}
   </style>
 </head>
 <body>
@@ -77,15 +160,33 @@ tbody tr:last-child td{border-bottom:none}
 <header>
   <div class="hero">
     <h1>Get Your Free Estimate</h1>
-    <p class="sub">Fill out the form below and we’ll connect you with a qualified local professional.</p>
+    <p class="sub">All you have to do is fill out the form below.</p>
   </div>
 </header>
 <main>
   <section class="card">
 
-    
-<p class="muted">Embed your lead form here.</p>
+    <div class="form-grid">
+  <div class="embed-card">
+    <div class="nx-center">
+      <div id="networx_form_container" style="margin:0px;padding:0px;">
+    <div id = "nx_form" style = "width: 242px; height: 375px;">
+        <script type="text/javascript" src = "https://api.networx.com/iframe.php?aff_id=73601bc3bd5a961a61a973e92e29f169&aff_to_form_id=8002"></script>
+    </div>
+</div>
+    </div>
+  </div>
 
+  <aside class="why-box" aria-label="Why choose us">
+    <h3>Why Choose Us?</h3>
+    <ul class="why-list">
+      <li class="why-item"><span class="tick" aria-hidden="true"></span><span>Free, no-obligation estimates</span></li>
+<li class="why-item"><span class="tick" aria-hidden="true"></span><span>Trusted, experienced professionals</span></li>
+<li class="why-item"><span class="tick" aria-hidden="true"></span><span>Nationwide service coverage</span></li>
+<li class="why-item"><span class="tick" aria-hidden="true"></span><span>Fast response times</span></li>
+    </ul>
+  </aside>
+</div>
   </section>
 </main>
 

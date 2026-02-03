@@ -324,7 +324,8 @@ class SiteConfig:
   )
 
 
-COST_INNER = """
+COST_INNER = [
+"""
 <section>
   <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
   <div class="table-scroll">
@@ -559,9 +560,955 @@ COST_INNER = """
     damage is covered.
   </p>
 </section>
+""",
 """
+<section>
+  <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Repair Scenario</th>
+          <th>Typical Cost Range</th>
+          <th>What You’re Paying For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small hole repair (up to ~2")</td>
+          <td>$150–$350</td>
+          <td>Clean-out, epoxy patch/plug, seal, spot finish</td>
+        </tr>
+        <tr>
+          <td>Medium hole repair (~2–6")</td>
+          <td>$300–$800</td>
+          <td>Deeper patch/plug, sealing, finish blending</td>
+        </tr>
+        <tr>
+          <td>Large hole repair (over ~6")</td>
+          <td>$600–$1,500</td>
+          <td>Section rebuild or partial replacement, sealing, finish</td>
+        </tr>
+        <tr>
+          <td>Replace a damaged siding board / small area</td>
+          <td>$500–$2,500</td>
+          <td>Remove/replace material, water management, finish match</td>
+        </tr>
+        <tr>
+          <td>Structural repair (sheathing/stud/insulation affected)</td>
+          <td>$1,000–$3,500+</td>
+          <td>Open-up, replace damaged wood, restore weather barrier</td>
+        </tr>
+        <tr>
+          <td>Interior wall repair (if penetrated)</td>
+          <td>$250–$900</td>
+          <td>Drywall patch, texture match, paint</td>
+        </tr>
+        <tr>
+          <td>Paint/stain blending (separate line item)</td>
+          <td>$150–$600</td>
+          <td>Prime + blend to hide repair</td>
+        </tr>
+        <tr>
+          <td>High access work (2nd story / steep roofline)</td>
+          <td>+15% to +50%</td>
+          <td>Setup time, safety, ladders or lift</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-HOWTO_INNER = """
+  <p>
+    <strong>Typical total:</strong> $300–$2,500.
+    <strong>When hidden damage is present:</strong> $5,000+ is possible.
+  </p>
+
+  <hr />
+
+  <h2>Cost by Severity (Fast Self-Assessment)</h2>
+
+  <h3>Minor</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> 1–2 small holes, shallow pecks, solid wood</li>
+    <li><strong>Expected cost:</strong> $150–$500</li>
+    <li><strong>Common repair:</strong> epoxy patch/plug + seal + spot finish</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> multiple holes in one zone, repeated pecking on the same board</li>
+    <li><strong>Expected cost:</strong> $500–$2,500</li>
+    <li><strong>Common repair:</strong> multi-hole patching or board/panel replacement + finish blending</li>
+  </ul>
+
+  <h3>Severe</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> cavity access, soft/rotted wood, water staining, nesting attempts</li>
+    <li><strong>Expected cost:</strong> $2,500–$5,000+</li>
+    <li><strong>Common repair:</strong> open-up + structural repair + insulation/water barrier restoration</li>
+  </ul>
+
+  <hr />
+
+  <h2>Repair Cost by Siding Material</h2>
+  
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Siding Material</th>
+          <th>Typical Repair Range</th>
+          <th>Why It Costs More (or Less)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wood lap siding</td>
+          <td>$300–$3,000</td>
+          <td>Finish matching + moisture protection are labor-heavy</td>
+        </tr>
+        <tr>
+          <td>Cedar shake</td>
+          <td>$500–$4,000</td>
+          <td>Individual shake replacement + blend pattern/aging</td>
+        </tr>
+        <tr>
+          <td>Vinyl siding</td>
+          <td>$250–$2,000</td>
+          <td>Often panel replacement; color matching varies by age</td>
+        </tr>
+        <tr>
+          <td>Fiber cement</td>
+          <td>$500–$3,500</td>
+          <td>Cutting/fastening + repainting required</td>
+        </tr>
+        <tr>
+          <td>Stucco</td>
+          <td>$800–$4,500</td>
+          <td>Multi-step patch + texture matching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What Increases Woodpecker Repair Costs</h2>
+
+  <ul>
+    <li><strong>Hidden moisture:</strong> swelling, rot, or stained sheathing behind siding</li>
+    <li><strong>Hole depth:</strong> penetration into cavity or insulation triggers bigger scope</li>
+    <li><strong>Repeat targeting:</strong> multiple boards or corners need repair + protection</li>
+    <li><strong>Access:</strong> second story, roofline, chimney, steep grade</li>
+    <li><strong>Finish matching:</strong> older paint/stain requires blending, not just patching</li>
+  </ul>
+
+  <hr />
+
+  <h2>When Patching Is Enough vs When Replacement Is Required</h2>
+
+  <h3>Patching is usually enough if:</h3>
+  <ul>
+    <li>The wood is hard when probed</li>
+    <li>Holes are shallow and limited to the surface</li>
+    <li>No water staining, softness, or swelling is present</li>
+  </ul>
+
+  <h3>Replacement is usually required if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes are large, deep, or connected internally</li>
+    <li>There is rot, cracking, swelling, or delamination</li>
+    <li>The same board has been hit repeatedly</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is more reliable than patching.
+  </p>
+
+  <hr />
+
+  <h2>Prevention Costs (Avoid Paying Twice)</h2>
+
+  <p>
+    Repairs alone often get hit again. Physical exclusion is what consistently stops repeat damage.
+  </p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Prevention Method</th>
+          <th>Typical Cost</th>
+          <th>Best Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bird netting over the target area</td>
+          <td>$150–$800</td>
+          <td>Repeat pecking zones on siding walls</td>
+        </tr>
+        <tr>
+          <td>Hardware cloth / barrier panels</td>
+          <td>$150–$900</td>
+          <td>Corners, fascia, trim boards that get repeatedly hit</td>
+        </tr>
+        <tr>
+          <td>Metal flashing / corner protection</td>
+          <td>$200–$1,000</td>
+          <td>High-impact edges and roofline zones</td>
+        </tr>
+        <tr>
+          <td>Professional wildlife exclusion / control</td>
+          <td>$300–$1,500</td>
+          <td>Persistent activity or nesting attempts</td>
+        </tr>
+        <tr>
+          <td>Visual deterrents (tape/decoys)</td>
+          <td>$20–$150</td>
+          <td>Short-term support only (not a primary fix)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What a Siding Repair Quote Should Include</h2>
+
+  <ul>
+    <li>Hole count and largest hole diameter</li>
+    <li>Patch vs board/panel replacement scope</li>
+    <li>Waterproofing plan (sealant, flashing, weather barrier restoration)</li>
+    <li>Finish plan (prime + paint blend or stain match)</li>
+    <li>Access plan (ladder vs lift and how it impacts price)</li>
+    <li>Prevention plan (netting/barriers) to reduce repeat damage</li>
+  </ul>
+
+  <hr />
+
+  <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
+
+  <p>
+    Home insurance may cover woodpecker damage depending on the policy and exclusions. Coverage is more likely when
+    damage is sudden and not tied to neglect. Document the damage immediately and ask whether animal-related exterior
+    damage is covered.
+  </p>
+</section>
+""",
+"""
+<section>
+  <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Repair Scenario</th>
+          <th>Typical Cost Range</th>
+          <th>What You’re Paying For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small hole repair (up to ~2")</td>
+          <td>$150–$350</td>
+          <td>Debris removal, epoxy plugging, sealing, and touch-up work</td>
+        </tr>
+        <tr>
+          <td>Medium hole repair (~2–6")</td>
+          <td>$300–$800</td>
+          <td>Deeper cavity filling, weather sealing, and finish blending</td>
+        </tr>
+        <tr>
+          <td>Large hole repair (over ~6")</td>
+          <td>$600–$1,500</td>
+          <td>Section reconstruction, partial board swap, sealing, and finish</td>
+        </tr>
+        <tr>
+          <td>Replace a damaged siding board / small area</td>
+          <td>$500–$2,500</td>
+          <td>Removing old material, water barrier checks, and finish matching</td>
+        </tr>
+        <tr>
+          <td>Structural repair (sheathing/stud/insulation affected)</td>
+          <td>$1,000–$3,500+</td>
+          <td>Opening the wall, replacing framing wood, and restoring barriers</td>
+        </tr>
+        <tr>
+          <td>Interior wall repair (if penetrated)</td>
+          <td>$250–$900</td>
+          <td>Drywall patching, matching the texture, and painting</td>
+        </tr>
+        <tr>
+          <td>Paint/stain blending (separate line item)</td>
+          <td>$150–$600</td>
+          <td>Base priming + blending to conceal the repair work</td>
+        </tr>
+        <tr>
+          <td>High access work (2nd story / steep roofline)</td>
+          <td>+15% to +50%</td>
+          <td>Setup time, safety protocols, and ladder or lift fees</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Typical total:</strong> $300–$2,500.
+    <strong>When hidden damage is present:</strong> $5,000+ is possible.
+  </p>
+
+  <hr />
+
+  <h2>Cost by Severity (Fast Self-Assessment)</h2>
+
+  <h3>Minor</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> 1–2 small holes, shallow pecks, solid wood</li>
+    <li><strong>Expected cost:</strong> $150–$500</li>
+    <li><strong>Common repair:</strong> epoxy patch/plug + seal + spot finish</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> multiple holes in one zone, repeated pecking on the same board</li>
+    <li><strong>Expected cost:</strong> $500–$2,500</li>
+    <li><strong>Common repair:</strong> multi-hole patching or board/panel replacement + finish blending</li>
+  </ul>
+
+  <h3>Severe</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> cavity access, soft/rotted wood, water staining, nesting attempts</li>
+    <li><strong>Expected cost:</strong> $2,500–$5,000+</li>
+    <li><strong>Common repair:</strong> open-up + structural repair + insulation/water barrier restoration</li>
+  </ul>
+
+  <hr />
+
+  <h2>Repair Cost by Siding Material</h2>
+  
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Siding Material</th>
+          <th>Typical Repair Range</th>
+          <th>Why It Costs More (or Less)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wood lap siding</td>
+          <td>$300–$3,000</td>
+          <td>Color matching + moisture sealing are labor-intensive</td>
+        </tr>
+        <tr>
+          <td>Cedar shake</td>
+          <td>$500–$4,000</td>
+          <td>Individual shake swaps + blending with aged patterns</td>
+        </tr>
+        <tr>
+          <td>Vinyl siding</td>
+          <td>$250–$2,000</td>
+          <td>Often requires panel replacement; color match depends on age</td>
+        </tr>
+        <tr>
+          <td>Fiber cement</td>
+          <td>$500–$3,500</td>
+          <td>Cutting/fastening + full repainting is usually necessary</td>
+        </tr>
+        <tr>
+          <td>Stucco</td>
+          <td>$800–$4,500</td>
+          <td>Multi-stage patch application + texture matching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What Increases Woodpecker Repair Costs</h2>
+
+  <ul>
+    <li><strong>Hidden moisture:</strong> swelling, rot, or damp sheathing behind the siding</li>
+    <li><strong>Hole depth:</strong> penetration into the cavity or insulation expands the scope</li>
+    <li><strong>Repeat targeting:</strong> multiple boards or corners needing repair + exclusion</li>
+    <li><strong>Access:</strong> second story, roofline, chimneys, or steep grades</li>
+    <li><strong>Finish matching:</strong> aged paint/stain requires blending, not just a patch</li>
+  </ul>
+
+  <hr />
+
+  <h2>When Patching Is Enough vs When Replacement Is Required</h2>
+
+  <h3>Patching is usually enough if:</h3>
+  <ul>
+    <li>The wood is hard when probed</li>
+    <li>Holes are shallow and limited to the surface</li>
+    <li>No water staining, softness, or swelling is present</li>
+  </ul>
+
+  <h3>Replacement is usually required if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes are large, deep, or connected internally</li>
+    <li>There is rot, cracking, swelling, or delamination</li>
+    <li>The same board has been hit repeatedly</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is more reliable than patching.
+  </p>
+
+  <hr />
+
+  <h2>Prevention Costs (Avoid Paying Twice)</h2>
+
+  <p>
+    Standard repairs often get targeted again. Physical exclusion is what actually stops repeat damage.
+  </p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Prevention Method</th>
+          <th>Typical Cost</th>
+          <th>Best Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bird netting over the target area</td>
+          <td>$150–$800</td>
+          <td>Repeat pecking zones on flat siding walls</td>
+        </tr>
+        <tr>
+          <td>Hardware cloth / barrier panels</td>
+          <td>$150–$900</td>
+          <td>Corners, fascia, and trim boards hit repeatedly</td>
+        </tr>
+        <tr>
+          <td>Metal flashing / corner protection</td>
+          <td>$200–$1,000</td>
+          <td>High-impact edges and steep roofline zones</td>
+        </tr>
+        <tr>
+          <td>Professional wildlife exclusion / control</td>
+          <td>$300–$1,500</td>
+          <td>Ongoing activity or nesting attempts</td>
+        </tr>
+        <tr>
+          <td>Visual deterrents (tape/decoys)</td>
+          <td>$20–$150</td>
+          <td>Short-term support only (not a standalone fix)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What a Siding Repair Quote Should Include</h2>
+
+  <ul>
+    <li>Hole count and largest hole diameter</li>
+    <li>Patch vs board/panel replacement scope</li>
+    <li>Waterproofing plan (sealant, flashing, weather barrier restoration)</li>
+    <li>Finish plan (prime + paint blend or stain match)</li>
+    <li>Access plan (ladder vs lift and how it impacts price)</li>
+    <li>Prevention plan (netting/barriers) to reduce repeat damage</li>
+  </ul>
+
+  <hr />
+
+  <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
+
+  <p>
+    Home insurance might cover woodpecker damage based on your policy and exclusions. Coverage is more likely when
+    damage is sudden rather than gradual neglect. Document the damage at once and ask if animal-related exterior
+    damage is included.
+  </p>
+</section>
+""",
+"""
+<section>
+  <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Repair Scenario</th>
+          <th>Typical Cost Range</th>
+          <th>What You’re Paying For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small hole repair (up to ~2")</td>
+          <td>$150–$350</td>
+          <td>Clearing out debris, epoxy patching, sealing, and touch-ups</td>
+        </tr>
+        <tr>
+          <td>Medium hole repair (~2–6")</td>
+          <td>$300–$800</td>
+          <td>Plugging deep holes, weather sealing, and finish blending</td>
+        </tr>
+        <tr>
+          <td>Large hole repair (over ~6")</td>
+          <td>$600–$1,500</td>
+          <td>Area reconstruction or partial replacement, sealing, and finish</td>
+        </tr>
+        <tr>
+          <td>Replace a damaged siding board / small area</td>
+          <td>$500–$2,500</td>
+          <td>Removing damaged material, moisture protection, and finish matching</td>
+        </tr>
+        <tr>
+          <td>Structural repair (sheathing/stud/insulation affected)</td>
+          <td>$1,000–$3,500+</td>
+          <td>Wall access, replacing damaged wood, and restoring weather barriers</td>
+        </tr>
+        <tr>
+          <td>Interior wall repair (if penetrated)</td>
+          <td>$250–$900</td>
+          <td>Drywall repair, matching the texture, and repainting</td>
+        </tr>
+        <tr>
+          <td>Paint/stain blending (separate line item)</td>
+          <td>$150–$600</td>
+          <td>Priming and custom blending to mask the repair</td>
+        </tr>
+        <tr>
+          <td>High access work (2nd story / steep roofline)</td>
+          <td>+15% to +50%</td>
+          <td>Preparation time, safety gear, and lift or ladder setup</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Typical total:</strong> $300–$2,500.
+    <strong>When hidden damage is present:</strong> $5,000+ is possible.
+  </p>
+
+  <hr />
+
+  <h2>Cost by Severity (Fast Self-Assessment)</h2>
+
+  <h3>Minor</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> 1–2 small holes, shallow pecks, solid wood</li>
+    <li><strong>Expected cost:</strong> $150–$500</li>
+    <li><strong>Common repair:</strong> epoxy patch/plug + seal + spot finish</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> multiple holes in one zone, repeated pecking on the same board</li>
+    <li><strong>Expected cost:</strong> $500–$2,500</li>
+    <li><strong>Common repair:</strong> multi-hole patching or board/panel replacement + finish blending</li>
+  </ul>
+
+  <h3>Severe</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> cavity access, soft/rotted wood, water staining, nesting attempts</li>
+    <li><strong>Expected cost:</strong> $2,500–$5,000+</li>
+    <li><strong>Common repair:</strong> open-up + structural repair + insulation/water barrier restoration</li>
+  </ul>
+
+  <hr />
+
+  <h2>Repair Cost by Siding Material</h2>
+  
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Siding Material</th>
+          <th>Typical Repair Range</th>
+          <th>Why It Costs More (or Less)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wood lap siding</td>
+          <td>$300–$3,000</td>
+          <td>Finish blending + moisture protection are labor-heavy tasks</td>
+        </tr>
+        <tr>
+          <td>Cedar shake</td>
+          <td>$500–$4,000</td>
+          <td>Manual shake replacement + blending with aged wood</td>
+        </tr>
+        <tr>
+          <td>Vinyl siding</td>
+          <td>$250–$2,000</td>
+          <td>Usually requires panel replacement; color match varies by sun exposure</td>
+        </tr>
+        <tr>
+          <td>Fiber cement</td>
+          <td>$500–$3,500</td>
+          <td>Specialized cutting + repainting of the entire section</td>
+        </tr>
+        <tr>
+          <td>Stucco</td>
+          <td>$800–$4,500</td>
+          <td>Multi-layered patching + matching complex textures</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What Increases Woodpecker Repair Costs</h2>
+
+  <ul>
+    <li><strong>Hidden moisture:</strong> rot, swelling, or wet sheathing located behind siding</li>
+    <li><strong>Hole depth:</strong> when holes reach the cavity or insulation, costs rise</li>
+    <li><strong>Repeat targeting:</strong> many boards or corners needing repair and protection</li>
+    <li><strong>Access:</strong> high peaks, chimneys, steep rooflines, or difficult grades</li>
+    <li><strong>Finish matching:</strong> old stain/paint requires professional blending</li>
+  </ul>
+
+  <hr />
+
+  <h2>When Patching Is Enough vs When Replacement Is Required</h2>
+
+  <h3>Patching is usually enough if:</h3>
+  <ul>
+    <li>The wood is hard when probed</li>
+    <li>Holes are shallow and limited to the surface</li>
+    <li>No water staining, softness, or swelling is present</li>
+  </ul>
+
+  <h3>Replacement is usually required if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes are large, deep, or connected internally</li>
+    <li>There is rot, cracking, swelling, or delamination</li>
+    <li>The same board has been hit repeatedly</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is more reliable than patching.
+  </p>
+
+  <hr />
+
+  <h2>Prevention Costs (Avoid Paying Twice)</h2>
+
+  <p>
+    Repairing damage alone often leads to new holes. Physical barriers are what stop birds for good.
+  </p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Prevention Method</th>
+          <th>Typical Cost</th>
+          <th>Best Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bird netting over the target area</td>
+          <td>$150–$800</td>
+          <td>Areas on siding walls with repeated pecking</td>
+        </tr>
+        <tr>
+          <td>Hardware cloth / barrier panels</td>
+          <td>$150–$900</td>
+          <td>Vulnerable corners, fascia, and trim boards</td>
+        </tr>
+        <tr>
+          <td>Metal flashing / corner protection</td>
+          <td>$200–$1,000</td>
+          <td>Exposed edges and high roofline sections</td>
+        </tr>
+        <tr>
+          <td>Professional wildlife exclusion / control</td>
+          <td>$300–$1,500</td>
+          <td>Persistent bird activity or nesting habits</td>
+        </tr>
+        <tr>
+          <td>Visual deterrents (tape/decoys)</td>
+          <td>$20–$150</td>
+          <td>Temporary aid only (not a permanent solution)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What a Siding Repair Quote Should Include</h2>
+
+  <ul>
+    <li>Hole count and largest hole diameter</li>
+    <li>Patch vs board/panel replacement scope</li>
+    <li>Waterproofing plan (sealant, flashing, weather barrier restoration)</li>
+    <li>Finish plan (prime + paint blend or stain match)</li>
+    <li>Access plan (ladder vs lift and how it impacts price)</li>
+    <li>Prevention plan (netting/barriers) to reduce repeat damage</li>
+  </ul>
+
+  <hr />
+
+  <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
+
+  <p>
+    Homeowners insurance might cover woodpecker damage depending on specific policy language. Coverage is more likely
+    for sudden damage rather than slow decay. Take photos of the damage immediately and verify if animal-related
+    repairs are covered.
+  </p>
+</section>
+""",
+"""
+<section>
+  <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Repair Scenario</th>
+          <th>Typical Cost Range</th>
+          <th>What You’re Paying For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small hole repair (up to ~2")</td>
+          <td>$150–$350</td>
+          <td>Extraction of debris, epoxy filler, sealing, and spot finish</td>
+        </tr>
+        <tr>
+          <td>Medium hole repair (~2–6")</td>
+          <td>$300–$800</td>
+          <td>Deep-fill patching, weather sealing, and finish blending</td>
+        </tr>
+        <tr>
+          <td>Large hole repair (over ~6")</td>
+          <td>$600–$1,500</td>
+          <td>Rebuilding the section, partial replacement, and sealing</td>
+        </tr>
+        <tr>
+          <td>Replace a damaged siding board / small area</td>
+          <td>$500–$2,500</td>
+          <td>Removal of old material, moisture barrier restoration, and color match</td>
+        </tr>
+        <tr>
+          <td>Structural repair (sheathing/stud/insulation affected)</td>
+          <td>$1,000–$3,500+</td>
+          <td>Wall cavity access, replacing rotted wood, and restoring barriers</td>
+        </tr>
+        <tr>
+          <td>Interior wall repair (if penetrated)</td>
+          <td>$250–$900</td>
+          <td>Drywall patching, texture blending, and interior paint</td>
+        </tr>
+        <tr>
+          <td>Paint/stain blending (separate line item)</td>
+          <td>$150–$600</td>
+          <td>Priming and blending to ensure the repair is hidden</td>
+        </tr>
+        <tr>
+          <td>High access work (2nd story / steep roofline)</td>
+          <td>+15% to +50%</td>
+          <td>Setup time, safety protocols, and ladder or lift access</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Typical total:</strong> $300–$2,500.
+    <strong>When hidden damage is present:</strong> $5,000+ is possible.
+  </p>
+
+  <hr />
+
+  <h2>Cost by Severity (Fast Self-Assessment)</h2>
+
+  <h3>Minor</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> 1–2 small holes, shallow pecks, solid wood</li>
+    <li><strong>Expected cost:</strong> $150–$500</li>
+    <li><strong>Common repair:</strong> epoxy patch/plug + seal + spot finish</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> multiple holes in one zone, repeated pecking on the same board</li>
+    <li><strong>Expected cost:</strong> $500–$2,500</li>
+    <li><strong>Common repair:</strong> multi-hole patching or board/panel replacement + finish blending</li>
+  </ul>
+
+  <h3>Severe</h3>
+  <ul>
+    <li><strong>What it looks like:</strong> cavity access, soft/rotted wood, water staining, nesting attempts</li>
+    <li><strong>Expected cost:</strong> $2,500–$5,000+</li>
+    <li><strong>Common repair:</strong> open-up + structural repair + insulation/water barrier restoration</li>
+  </ul>
+
+  <hr />
+
+  <h2>Repair Cost by Siding Material</h2>
+  
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Siding Material</th>
+          <th>Typical Repair Range</th>
+          <th>Why It Costs More (or Less)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wood lap siding</td>
+          <td>$300–$3,000</td>
+          <td>Finish matching + moisture protection are labor-heavy</td>
+        </tr>
+        <tr>
+          <td>Cedar shake</td>
+          <td>$500–$4,000</td>
+          <td>Individual shake replacement + blend pattern/aging</td>
+        </tr>
+        <tr>
+          <td>Vinyl siding</td>
+          <td>$250–$2,000</td>
+          <td>Often panel replacement; color matching varies by age</td>
+        </tr>
+        <tr>
+          <td>Fiber cement</td>
+          <td>$500–$3,500</td>
+          <td>Cutting/fastening + repainting required</td>
+        </tr>
+        <tr>
+          <td>Stucco</td>
+          <td>$800–$4,500</td>
+          <td>Multi-step patch + texture matching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What Increases Woodpecker Repair Costs</h2>
+
+  <ul>
+    <li><strong>Hidden moisture:</strong> swelling, rot, or stained sheathing behind siding</li>
+    <li><strong>Hole depth:</strong> penetration into cavity or insulation triggers bigger scope</li>
+    <li><strong>Repeat targeting:</strong> multiple boards or corners need repair + protection</li>
+    <li><strong>Access:</strong> second story, roofline, chimney, steep grade</li>
+    <li><strong>Finish matching:</strong> older paint/stain requires blending, not just patching</li>
+  </ul>
+
+  <hr />
+
+  <h2>When Patching Is Enough vs When Replacement Is Required</h2>
+
+  <h3>Patching is usually enough if:</h3>
+  <ul>
+    <li>The wood is hard when probed</li>
+    <li>Holes are shallow and limited to the surface</li>
+    <li>No water staining, softness, or swelling is present</li>
+  </ul>
+
+  <h3>Replacement is usually required if:</h3>
+  <ul>
+    <li>The wood feels soft or spongy</li>
+    <li>Holes are large, deep, or connected internally</li>
+    <li>There is rot, cracking, swelling, or delamination</li>
+    <li>The same board has been hit repeatedly</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is more reliable than patching.
+  </p>
+
+  <hr />
+
+  <h2>Prevention Costs (Avoid Paying Twice)</h2>
+
+  <p>
+    Repairing holes alone often results in repeat damage. Physical exclusion is what consistently stops the activity.
+  </p>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Prevention Method</th>
+          <th>Typical Cost</th>
+          <th>Best Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bird netting over the target area</td>
+          <td>$150–$800</td>
+          <td>Recurring pecking zones on siding walls</td>
+        </tr>
+        <tr>
+          <td>Hardware cloth / barrier panels</td>
+          <td>$150–$900</td>
+          <td>Corners, fascia, and trim boards that get targeted</td>
+        </tr>
+        <tr>
+          <td>Metal flashing / corner protection</td>
+          <td>$200–$1,000</td>
+          <td>High-impact edges and specific roofline zones</td>
+        </tr>
+        <tr>
+          <td>Professional wildlife exclusion / control</td>
+          <td>$300–$1,500</td>
+          <td>Aggressive activity or nesting attempts</td>
+        </tr>
+        <tr>
+          <td>Visual deterrents (tape/decoys)</td>
+          <td>$20–$150</td>
+          <td>Temporary support only (not a primary fix)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2>What a Siding Repair Quote Should Include</h2>
+
+  <ul>
+    <li>Hole count and largest hole diameter</li>
+    <li>Patch vs board/panel replacement scope</li>
+    <li>Waterproofing plan (sealant, flashing, weather barrier restoration)</li>
+    <li>Finish plan (prime + paint blend or stain match)</li>
+    <li>Access plan (ladder vs lift and how it impacts price)</li>
+    <li>Prevention plan (netting/barriers) to reduce repeat damage</li>
+  </ul>
+
+  <hr />
+
+  <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
+
+  <p>
+    Home insurance policies may cover woodpecker damage depending on specific terms. Coverage is most likely when
+    the damage is sudden and not caused by neglect. Document any damage immediately and ask whether animal-related
+    exterior damage is included in your plan.
+  </p>
+</section>
+"""
+]
+
+HOWTO_INNER = [
+"""
 <section>
   <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
 
@@ -692,7 +1639,538 @@ HOWTO_INNER = """
   <p>
     If insects are confirmed, address them in addition to repairing damage and excluding birds.
   </p>
+""",
 """
+<section>
+  <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
+
+  <p>Before patching any holes, evaluate the extent of the wood damage.</p>
+
+  <h3>You can usually repair if:</h3>
+  <ul>
+    <li>The wood remains <strong>solid when probed</strong></li>
+    <li>The hole is <strong>shallow or clean-edged</strong></li>
+    <li>No <strong>moisture staining or softness</strong> is present</li>
+  </ul>
+
+  <h3>You should replace siding or trim if:</h3>
+  <ul>
+    <li>The wood feels <strong>soft or spongy</strong></li>
+    <li>Holes <strong>penetrate deeply</strong> or show cavity access</li>
+    <li>There is <strong>visible rot, swelling, or cracking</strong></li>
+    <li>Damage has <strong>occurred repeatedly</strong> in the same board</li>
+  </ul>
+
+  <p>
+    If you can push a screwdriver into the wood easily, replacement is safer than patching.
+  </p>
+
+  <hr />
+
+  <h2>Step 2: Choose the Right Repair Method</h2>
+
+  <h3>Method 1: Patch Small Holes and Divots</h3>
+  <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
+
+  <ol>
+    <li>Remove any loose fibers and debris</li>
+    <li>Wait for the area to dry completely</li>
+    <li>Fill with <strong>two-part epoxy wood filler</strong></li>
+    <li>Slightly overfill and then sand smooth after curing</li>
+    <li>Prime any bare wood</li>
+    <li>Paint or stain to match the finish</li>
+  </ol>
+
+  <p>
+    <strong>Epoxy fillers</strong> work better than standard caulk or lightweight putties for exterior use.
+  </p>
+
+  <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
+  <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
+
+  <ol>
+    <li>Clean the hole using a hole saw</li>
+    <li>Cut a matching wood plug when possible</li>
+    <li>Secure the plug with <strong>exterior epoxy or adhesive</strong></li>
+    <li>Sand level once cured</li>
+    <li>Prime and then paint or stain</li>
+  </ol>
+
+  <p>
+    This technique <strong>restores strength</strong> and blends better than using fillers alone.
+  </p>
+
+  <h3>Method 3: Replace Damaged Boards or Sections</h3>
+  <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
+
+  <ol>
+    <li>Remove the damaged board carefully</li>
+    <li>Inspect the sheathing or framing underneath</li>
+    <li>Fix any moisture issues if they exist</li>
+    <li>Install a matching replacement board</li>
+    <li>Seal, prime, and finish all exposed wood</li>
+  </ol>
+
+  <hr />
+
+  <h2>Step 3: Seal and Finish Correctly</h2>
+
+  <ul>
+    <li><strong>Prime all exposed wood</strong> before you paint</li>
+    <li>Pay close attention to <strong>end grain</strong></li>
+    <li>Use <strong>paintable exterior caulk</strong> only at seams</li>
+    <li>Match existing paint to protect the repairs</li>
+  </ul>
+
+  <hr />
+
+  <h2>How to Prevent Woodpeckers From Returning</h2>
+
+  <p>
+    Repairing holes alone often leads to <strong>repeat damage</strong>, sometimes in a few days.
+  </p>
+
+  <h3>Install Bird Netting</h3>
+
+  <ul>
+    <li>Use <strong>3/4-inch mesh netting</strong></li>
+    <li>Keep at least <strong>3 inches of space</strong> from the siding</li>
+    <li>Cover the <strong>entire affected wall section</strong></li>
+  </ul>
+
+  <p>
+    If netting is installed too narrowly, birds will simply move to the edge and keep pecking.
+  </p>
+
+  <h3>Use Physical Barriers Where Needed</h3>
+
+  <ul>
+    <li><strong>Hardware cloth</strong></li>
+    <li><strong>Sheet metal</strong> or PVC panels</li>
+    <li><strong>Protective flashing</strong> on corners and fascia</li>
+  </ul>
+
+  <h3>Visual Deterrents</h3>
+
+  <p>
+    <strong>Reflective tape</strong> or streamers can help temporarily but are best as a supplement.
+  </p>
+
+  <hr />
+
+  <h2>When Insects Do Matter</h2>
+
+  <p>Insect treatment is necessary only when clear signs are present, like:</p>
+
+  <ul>
+    <li><strong>Carpenter ants</strong></li>
+    <li><strong>Carpenter bees</strong></li>
+    <li><strong>Termites</strong></li>
+  </ul>
+
+  <p>
+    If insects are found, <strong>address them</strong> along with repairing the damage and bird exclusion.
+  </p>
+</section>""",
+"""
+<section>
+  <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
+
+  <p>Assess how deep the damage goes before you start filling any holes.</p>
+
+  <h3>You can usually repair if:</h3>
+  <ul>
+    <li>The wood is <strong>solid when probed</strong></li>
+    <li>The hole is <strong>shallow or clean-edged</strong></li>
+    <li>No <strong>moisture staining or softness</strong> is present</li>
+  </ul>
+
+  <h3>You should replace siding or trim if:</h3>
+  <ul>
+    <li>The wood feels <strong>soft or spongy</strong></li>
+    <li>Holes <strong>penetrate deeply</strong> or show cavity access</li>
+    <li>There is <strong>visible rot, swelling, or cracking</strong></li>
+    <li>Damage has <strong>occurred repeatedly</strong> in the same board</li>
+  </ul>
+
+  <p>
+    If you can push a screwdriver into the wood easily, replacement is safer than patching.
+  </p>
+
+  <hr />
+
+  <h2>Step 2: Choose the Right Repair Method</h2>
+
+  <h3>Method 1: Patch Small Holes and Divots</h3>
+  <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
+
+  <ol>
+    <li>Clear away loose fibers and debris</li>
+    <li>Let the area dry out completely</li>
+    <li>Fill with <strong>two-part epoxy wood filler</strong></li>
+    <li>Slightly overfill and sand level after curing</li>
+    <li>Prime the bare wood</li>
+    <li>Paint or stain to match</li>
+  </ol>
+
+  <p>
+    <strong>Epoxy fillers</strong> are superior to standard caulk or lightweight putties for exterior repairs.
+  </p>
+
+  <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
+  <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
+
+  <ol>
+    <li>Clean the hole using a hole saw</li>
+    <li>Cut a matching wood plug when possible</li>
+    <li>Bond the plug with <strong>exterior epoxy or adhesive</strong></li>
+    <li>Sand flush once cured</li>
+    <li>Prime and then paint or stain</li>
+  </ol>
+
+  <p>
+    This method <strong>restores strength</strong> and blends in better than surface-level fillers.
+  </p>
+
+  <h3>Method 3: Replace Damaged Boards or Sections</h3>
+  <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
+
+  <ol>
+    <li>Carefully remove the damaged board</li>
+    <li>Check underlying sheathing or framing</li>
+    <li>Repair any moisture problems found</li>
+    <li>Install a matching replacement board</li>
+    <li>Seal, prime, and finish all surfaces</li>
+  </ol>
+
+  <hr />
+
+  <h2>Step 3: Seal and Finish Correctly</h2>
+
+  <ul>
+    <li><strong>Prime all exposed wood</strong> before painting</li>
+    <li>Seal <strong>end grain</strong> with extra care</li>
+    <li>Use <strong>paintable exterior caulk</strong> only at seams</li>
+    <li>Match existing paint or stain to hide the repairs</li>
+  </ul>
+
+  <hr />
+
+  <h2>How to Prevent Woodpeckers From Returning</h2>
+
+  <p>
+    Repairing holes alone often leads to <strong>repeat damage</strong> within a few days.
+  </p>
+
+  <h3>Install Bird Netting</h3>
+
+  <ul>
+    <li>Use <strong>3/4-inch mesh netting</strong></li>
+    <li>Maintain at least <strong>3 inches of space</strong> from the siding</li>
+    <li>Cover the <strong>entire affected wall section</strong></li>
+  </ul>
+
+  <p>
+    If the netting is too narrow, woodpeckers will just move to the edge and continue pecking.
+  </p>
+
+  <h3>Use Physical Barriers Where Needed</h3>
+
+  <ul>
+    <li><strong>Hardware cloth</strong></li>
+    <li><strong>Sheet metal</strong> or PVC panels</li>
+    <li><strong>Protective flashing</strong> on corners and fascia</li>
+  </ul>
+
+  <h3>Visual Deterrents</h3>
+
+  <p>
+    <strong>Reflective tape</strong> or streamers might help temporarily but are best used as a supplement.
+  </p>
+
+  <hr />
+
+  <h2>When Insects Do Matter</h2>
+
+  <p>Insect treatment is only appropriate when clear signs are found, such as:</p>
+
+  <ul>
+    <li><strong>Carpenter ants</strong></li>
+    <li><strong>Carpenter bees</strong></li>
+    <li><strong>Termites</strong></li>
+  </ul>
+
+  <p>
+    If insects are present, <strong>treat them</strong> in addition to repairing damage and excluding birds.
+  </p>
+</section>""",
+"""
+<section>
+  <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
+
+  <p>Prior to filling holes, determine the depth of the damage.</p>
+
+  <h3>You can usually repair if:</h3>
+  <ul>
+    <li>The wood remains <strong>solid when probed</strong></li>
+    <li>The hole is <strong>shallow or clean-edged</strong></li>
+    <li>No <strong>moisture staining or softness</strong> is visible</li>
+  </ul>
+
+  <h3>You should replace siding or trim if:</h3>
+  <ul>
+    <li>The wood feels <strong>soft or spongy</strong></li>
+    <li>Holes <strong>penetrate deeply</strong> or show cavity access</li>
+    <li>There is <strong>visible rot, swelling, or cracking</strong></li>
+    <li>Damage has <strong>occurred repeatedly</strong> in the same board</li>
+  </ul>
+
+  <p>
+    <strong>Rule:</strong> If a screwdriver sinks in easily, replacement is safer than patching.
+  </p>
+
+  <hr />
+
+  <h2>Step 2: Choose the Right Repair Method</h2>
+
+  <h3>Method 1: Patch Small Holes and Divots</h3>
+  <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
+
+  <ol>
+    <li>Clear out loose fibers and debris</li>
+    <li>Allow the surface to dry completely</li>
+    <li>Fill with <strong>two-part epoxy wood filler</strong></li>
+    <li>Overfill slightly and sand flush after curing</li>
+    <li>Prime any bare wood</li>
+    <li>Paint or stain to match existing finish</li>
+  </ol>
+
+  <p>
+    <strong>Epoxy fillers</strong> outperform standard caulk or lightweight putties in exterior conditions.
+  </p>
+
+  <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
+  <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
+
+  <ol>
+    <li>Clean the hole using a hole saw</li>
+    <li>Cut a matching wood plug if possible</li>
+    <li>Secure the plug with <strong>exterior epoxy or adhesive</strong></li>
+    <li>Sand level once dry</li>
+    <li>Prime and then paint or stain</li>
+  </ol>
+
+  <p>
+    This method <strong>restores strength</strong> and blends better than surface fillers alone.
+  </p>
+
+  <h3>Method 3: Replace Damaged Boards or Sections</h3>
+  <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
+
+  <ol>
+    <li>Remove the damaged board with care</li>
+    <li>Inspect sheathing or framing underneath</li>
+    <li>Address any moisture issues found</li>
+    <li>Install a matching replacement board</li>
+    <li>Seal, prime, and finish all surfaces</li>
+  </ol>
+
+  <hr />
+
+  <h2>Step 3: Seal and Finish Correctly</h2>
+
+  <ul>
+    <li><strong>Prime all exposed wood</strong> before painting</li>
+    <li>Pay attention to <strong>end grain</strong> sealing</li>
+    <li>Use <strong>paintable exterior caulk</strong> only at seams</li>
+    <li>Match existing paint to protect repairs</li>
+  </ul>
+
+  <hr />
+
+  <h2>How to Prevent Woodpeckers From Returning</h2>
+
+  <p>
+    Fixing holes alone often leads to <strong>repeat damage</strong>, sometimes within days.
+  </p>
+
+  <h3>Install Bird Netting</h3>
+
+  <ul>
+    <li>Use <strong>3/4-inch mesh netting</strong></li>
+    <li>Keep at least <strong>3 inches of space</strong> from siding</li>
+    <li>Cover the <strong>entire affected wall section</strong></li>
+  </ul>
+
+  <p>
+    If netting is too narrow, birds will move to the edge and continue pecking.
+  </p>
+
+  <h3>Use Physical Barriers Where Needed</h3>
+
+  <ul>
+    <li><strong>Hardware cloth</strong></li>
+    <li><strong>Sheet metal</strong> or PVC panels</li>
+    <li><strong>Protective flashing</strong> on corners and fascia</li>
+  </ul>
+
+  <h3>Visual Deterrents</h3>
+
+  <p>
+    <strong>Reflective tape</strong> or streamers may help temporarily but are best used as a supplement.
+  </p>
+
+  <hr />
+
+  <h2>When Insects Do Matter</h2>
+
+  <p>Insect treatment is appropriate only when signs are present, such as:</p>
+
+  <ul>
+    <li><strong>Carpenter ants</strong></li>
+    <li><strong>Carpenter bees</strong></li>
+    <li><strong>Termites</strong></li>
+  </ul>
+
+  <p>
+    If insects are confirmed, <strong>address them</strong> in addition to repairing damage.
+  </p>
+</section>
+""",
+"""
+<section>
+  <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
+
+  <p>Before filling any holes, verify how deep the wood damage reaches.</p>
+
+  <h3>You can usually repair if:</h3>
+  <ul>
+    <li>The wood is <strong>solid when probed</strong></li>
+    <li>The hole is <strong>shallow or clean-edged</strong></li>
+    <li>No <strong>moisture staining or softness</strong> is present</li>
+  </ul>
+
+  <h3>You should replace siding or trim if:</h3>
+  <ul>
+    <li>The wood feels <strong>soft or spongy</strong></li>
+    <li>Holes <strong>penetrate deeply</strong> or connect internally</li>
+    <li>There is <strong>visible rot, swelling, or cracking</strong></li>
+    <li>Damage has <strong>occurred repeatedly</strong> in the same board</li>
+  </ul>
+
+  <p>
+    If you can push a screwdriver into the wood easily, replacement is safer than patching.
+  </p>
+
+  <hr />
+
+  <h2>Step 2: Choose the Right Repair Method</h2>
+
+  <h3>Method 1: Patch Small Holes and Divots</h3>
+  <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
+
+  <ol>
+    <li>Remove any loose fibers and debris</li>
+    <li>Ensure the area dries completely</li>
+    <li>Fill using a <strong>two-part epoxy wood filler</strong></li>
+    <li>Slightly overfill and sand smooth once cured</li>
+    <li>Prime the bare wood</li>
+    <li>Paint or stain for a matching finish</li>
+  </ol>
+
+  <p>
+    <strong>Epoxy fillers</strong> outperform standard caulk or lightweight putties in outdoor environments.
+  </p>
+
+  <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
+  <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
+
+  <ol>
+    <li>Clean the hole using a hole saw</li>
+    <li>Cut a matching wood plug if possible</li>
+    <li>Bond the plug with <strong>exterior epoxy or adhesive</strong></li>
+    <li>Sand the area flush once cured</li>
+    <li>Prime and then paint or stain</li>
+  </ol>
+
+  <p>
+    This method <strong>restores strength</strong> and blends better than using surface fillers alone.
+  </p>
+
+  <h3>Method 3: Replace Damaged Boards or Sections</h3>
+  <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
+
+  <ol>
+    <li>Carefully remove the damaged board</li>
+    <li>Check the sheathing or framing underneath</li>
+    <li>Fix moisture issues if they are found</li>
+    <li>Install a matching replacement board</li>
+    <li>Seal, prime, and finish all exposed wood surfaces</li>
+  </ol>
+
+  <hr />
+
+  <h2>Step 3: Seal and Finish Correctly</h2>
+
+  <ul>
+    <li><strong>Prime all exposed wood</strong> before you paint</li>
+    <li>Seal the <strong>end grain</strong> with extra care</li>
+    <li>Use <strong>paintable exterior caulk</strong> only at seams</li>
+    <li>Match existing paint to protect the final repairs</li>
+  </ul>
+
+  <hr />
+
+  <h2>How to Prevent Woodpeckers From Returning</h2>
+
+  <p>
+    Repairing holes alone often results in <strong>repeat damage</strong>, sometimes within days.
+  </p>
+
+  <h3>Install Bird Netting</h3>
+
+  <ul>
+    <li>Use <strong>3/4-inch mesh netting</strong></li>
+    <li>Leave at least <strong>3 inches of space</strong> from the siding</li>
+    <li>Cover the <strong>entire affected wall section</strong></li>
+  </ul>
+
+  <p>
+    If netting is installed too narrowly, woodpeckers will simply move to the edge and continue pecking.
+  </p>
+
+  <h3>Use Physical Barriers Where Needed</h3>
+
+  <ul>
+    <li><strong>Hardware cloth</strong></li>
+    <li><strong>Sheet metal</strong> or PVC panels</li>
+    <li><strong>Protective flashing</strong> on corners and fascia</li>
+  </ul>
+
+  <h3>Visual Deterrents</h3>
+
+  <p>
+    <strong>Reflective tape</strong> or streamers can help temporarily but should be used as a supplement only.
+  </p>
+
+  <hr />
+
+  <h2>When Insects Do Matter</h2>
+
+  <p>Insect treatment is appropriate only when signs are present, such as:</p>
+
+  <ul>
+    <li><strong>Carpenter ants</strong></li>
+    <li><strong>Carpenter bees</strong></li>
+    <li><strong>Termites</strong></li>
+  </ul>
+
+  <p>
+    If insects are found, <strong>address them</strong> in addition to repairing the damage and bird exclusion.
+  </p>
+</section>
+"""
+]
 
 
 CONFIG = SiteConfig()
@@ -949,6 +2427,90 @@ tbody tr:last-child td{border-bottom:none}
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-scroll table{min-width:720px}
 }
+
+/* -----------------------
+   CONTACT FORM (match first block)
+----------------------- */
+.form-grid{
+  margin-top:14px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr 320px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .form-grid{grid-template-columns:1fr}
+}
+
+.embed-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  background:var(--soft);
+}
+
+.nx-center{
+  display:flex;
+  justify-content:center; /* keep the small iframe centered */
+}
+
+/* Keep Networx at the required embedded size */
+#nx_form{
+  width:242px;
+  height:375px;
+}
+
+/* Force iframe to fill the fixed-size container */
+#networx_form_container iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+/* -----------------------
+   WHY BOX (match first block)
+----------------------- */
+.why-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 24px rgba(17,24,39,0.05);
+}
+.why-box h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+.why-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.why-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:13px;
+}
+.tick{
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(22,163,74,0.12);
+  border:1px solid rgba(22,163,74,0.22);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.tick:before{
+  content:"✓";
+  font-weight:900;
+  font-size:12px;
+}
+
 """.strip()
 
 
@@ -1203,14 +2765,47 @@ def homepage_html(*, mode: Mode) -> str:
     inner=inner,
   )
 
-def contact_page_html(*, mode: Mode) -> str:
+def contact_page_html(mode) -> str:
   h1 = "Get Your Free Estimate"
-  sub = "Fill out the form below and we’ll connect you with a qualified local professional."
+  sub = "All you have to do is fill out the form below."
 
-  # Keep your embed here; minimal placeholder
-  inner = """
-<p class="muted">Embed your lead form here.</p>
-"""
+  why_title = "Why Choose Us?"
+  why_bullets = (
+    "Free, no-obligation estimates",
+    "Trusted, experienced professionals",
+    "Nationwide service coverage",
+    "Fast response times",
+  )
+
+  why_items = "\n".join(
+    f'<li class="why-item"><span class="tick" aria-hidden="true"></span><span>{esc(t)}</span></li>'
+    for t in why_bullets
+  )
+
+  networx_embed = """
+<div id="networx_form_container" style="margin:0px;padding:0px;">
+    <div id = "nx_form" style = "width: 242px; height: 375px;">
+        <script type="text/javascript" src = "https://api.networx.com/iframe.php?aff_id=73601bc3bd5a961a61a973e92e29f169&aff_to_form_id=8008"></script>
+    </div>
+</div>
+""".strip()
+
+  inner = f"""
+<div class="form-grid">
+  <div class="embed-card">
+    <div class="nx-center">
+      {networx_embed}
+    </div>
+  </div>
+
+  <aside class="why-box" aria-label="Why choose us">
+    <h3>{esc(why_title)}</h3>
+    <ul class="why-list">
+      {why_items}
+    </ul>
+  </aside>
+</div>
+""".strip()
 
   return make_page(
     mode=mode,
@@ -1222,6 +2817,7 @@ def contact_page_html(*, mode: Mode) -> str:
     show_image=False,
     show_footer_cta=False,
   )
+
 
 def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str) -> str:
   inner = (
@@ -1239,7 +2835,7 @@ def city_page_html(*, mode: Mode, city: str, st: str, col: float, canonical: str
   )
 
 def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
-  inner = location_cost_section() + COST_INNER
+  inner = location_cost_section() + COST_INNER[COPY_IDX]
   if include_city_index:
     links = "\n".join(
       f'<li><a href="{esc(cost_city_href(mode, c, s))}">{esc(c)}, {esc(s)}</a></li>'
@@ -1278,7 +2874,7 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
   canonical = f"/cost/{slugify(city)}-{slugify(st)}/"
   h1 = clamp_title(f"{CONFIG.cost_title} in {city}, {st}", 70)
 
-  inner = location_cost_section(city, st, col) + COST_INNER
+  inner = location_cost_section(city, st, col) + COST_INNER[COPY_IDX]
 
   return make_page(
     mode=mode,
@@ -1290,7 +2886,7 @@ def cost_city_page_html(*, mode: Mode, city: str, st: str, col: float) -> str:
   )
 
 def howto_page_html(*, mode: Mode) -> str:
-  inner = HOWTO_INNER
+  inner = HOWTO_INNER[COPY_IDX]
   return make_page(
     mode=mode,
     h1=CONFIG.howto_title,

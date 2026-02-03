@@ -64,6 +64,89 @@ tbody tr:last-child td{border-bottom:none}
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-scroll table{min-width:720px}
 }
+
+/* -----------------------
+   CONTACT FORM (match first block)
+----------------------- */
+.form-grid{
+  margin-top:14px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr 320px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .form-grid{grid-template-columns:1fr}
+}
+
+.embed-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  background:var(--soft);
+}
+
+.nx-center{
+  display:flex;
+  justify-content:center; /* keep the small iframe centered */
+}
+
+/* Keep Networx at the required embedded size */
+#nx_form{
+  width:242px;
+  height:375px;
+}
+
+/* Force iframe to fill the fixed-size container */
+#networx_form_container iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+/* -----------------------
+   WHY BOX (match first block)
+----------------------- */
+.why-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 24px rgba(17,24,39,0.05);
+}
+.why-box h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+.why-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.why-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:13px;
+}
+.tick{
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(22,163,74,0.12);
+  border:1px solid rgba(22,163,74,0.22);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.tick:before{
+  content:"✓";
+  font-weight:900;
+  font-size:12px;
+}
   </style>
 </head>
 <body>
@@ -90,21 +173,21 @@ tbody tr:last-child td{border-bottom:none}
 <section>
   <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
 
-  <p>Before filling holes, determine how deep the damage goes.</p>
+  <p>Assess how deep the damage goes before you start filling any holes.</p>
 
   <h3>You can usually repair if:</h3>
   <ul>
-    <li>The wood is solid when probed</li>
-    <li>The hole is shallow or clean-edged</li>
-    <li>No moisture staining or softness is present</li>
+    <li>The wood is <strong>solid when probed</strong></li>
+    <li>The hole is <strong>shallow or clean-edged</strong></li>
+    <li>No <strong>moisture staining or softness</strong> is present</li>
   </ul>
 
   <h3>You should replace siding or trim if:</h3>
   <ul>
-    <li>The wood feels soft or spongy</li>
-    <li>Holes penetrate deeply or connect internally</li>
-    <li>There is visible rot, swelling, or cracking</li>
-    <li>Damage has occurred repeatedly in the same board</li>
+    <li>The wood feels <strong>soft or spongy</strong></li>
+    <li>Holes <strong>penetrate deeply</strong> or show cavity access</li>
+    <li>There is <strong>visible rot, swelling, or cracking</strong></li>
+    <li>Damage has <strong>occurred repeatedly</strong> in the same board</li>
   </ul>
 
   <p>
@@ -119,42 +202,42 @@ tbody tr:last-child td{border-bottom:none}
   <p><strong>Best for:</strong> Shallow pecks, cosmetic damage, minor holes</p>
 
   <ol>
-    <li>Remove loose fibers and debris</li>
-    <li>Let the area dry completely</li>
-    <li>Fill with two-part epoxy wood filler</li>
-    <li>Slightly overfill and sand smooth after curing</li>
-    <li>Prime bare wood</li>
+    <li>Clear away loose fibers and debris</li>
+    <li>Let the area dry out completely</li>
+    <li>Fill with <strong>two-part epoxy wood filler</strong></li>
+    <li>Slightly overfill and sand level after curing</li>
+    <li>Prime the bare wood</li>
     <li>Paint or stain to match</li>
   </ol>
 
   <p>
-    Epoxy fillers outperform standard caulk or lightweight putties in exterior conditions.
+    <strong>Epoxy fillers</strong> are superior to standard caulk or lightweight putties for exterior repairs.
   </p>
 
   <h3>Method 2: Plug Clean Round Woodpecker Holes</h3>
   <p><strong>Best for:</strong> Cedar siding and trim with round holes</p>
 
   <ol>
-    <li>Drill the hole clean using a hole saw</li>
+    <li>Clean the hole using a hole saw</li>
     <li>Cut a matching wood plug when possible</li>
-    <li>Bond the plug with exterior epoxy or adhesive</li>
+    <li>Bond the plug with <strong>exterior epoxy or adhesive</strong></li>
     <li>Sand flush once cured</li>
-    <li>Prime and paint or stain</li>
+    <li>Prime and then paint or stain</li>
   </ol>
 
   <p>
-    This method restores strength and blends better than surface fillers alone.
+    This method <strong>restores strength</strong> and blends in better than surface-level fillers.
   </p>
 
   <h3>Method 3: Replace Damaged Boards or Sections</h3>
   <p><strong>Best for:</strong> Large holes, repeated attacks, moisture damage</p>
 
   <ol>
-    <li>Remove the damaged board carefully</li>
-    <li>Inspect underlying sheathing or framing</li>
-    <li>Repair moisture issues if present</li>
+    <li>Carefully remove the damaged board</li>
+    <li>Check underlying sheathing or framing</li>
+    <li>Repair any moisture problems found</li>
     <li>Install a matching replacement board</li>
-    <li>Seal, prime, and finish all exposed surfaces</li>
+    <li>Seal, prime, and finish all surfaces</li>
   </ol>
 
   <hr />
@@ -162,10 +245,10 @@ tbody tr:last-child td{border-bottom:none}
   <h2>Step 3: Seal and Finish Correctly</h2>
 
   <ul>
-    <li>Prime all exposed wood before painting</li>
-    <li>Pay special attention to end grain</li>
-    <li>Use paintable exterior caulk only at seams</li>
-    <li>Match existing paint or stain to protect repairs</li>
+    <li><strong>Prime all exposed wood</strong> before painting</li>
+    <li>Seal <strong>end grain</strong> with extra care</li>
+    <li>Use <strong>paintable exterior caulk</strong> only at seams</li>
+    <li>Match existing paint or stain to hide the repairs</li>
   </ul>
 
   <hr />
@@ -173,51 +256,51 @@ tbody tr:last-child td{border-bottom:none}
   <h2>How to Prevent Woodpeckers From Returning</h2>
 
   <p>
-    Repairing holes alone often leads to repeat damage, sometimes within days.
+    Repairing holes alone often leads to <strong>repeat damage</strong> within a few days.
   </p>
 
   <h3>Install Bird Netting</h3>
 
   <ul>
-    <li>Use 3/4-inch mesh netting</li>
-    <li>Maintain at least 3 inches of space from siding</li>
-    <li>Cover the entire affected wall section</li>
+    <li>Use <strong>3/4-inch mesh netting</strong></li>
+    <li>Maintain at least <strong>3 inches of space</strong> from the siding</li>
+    <li>Cover the <strong>entire affected wall section</strong></li>
   </ul>
 
   <p>
-    If netting is installed too narrowly, woodpeckers will simply move to the edge and continue pecking.
+    If the netting is too narrow, woodpeckers will just move to the edge and continue pecking.
   </p>
 
   <h3>Use Physical Barriers Where Needed</h3>
 
   <ul>
-    <li>Hardware cloth</li>
-    <li>Sheet metal or PVC panels</li>
-    <li>Protective flashing on corners and fascia</li>
+    <li><strong>Hardware cloth</strong></li>
+    <li><strong>Sheet metal</strong> or PVC panels</li>
+    <li><strong>Protective flashing</strong> on corners and fascia</li>
   </ul>
 
   <h3>Visual Deterrents</h3>
 
   <p>
-    Reflective tape or streamers may help temporarily but are best used as a supplement, not a primary solution.
+    <strong>Reflective tape</strong> or streamers might help temporarily but are best used as a supplement.
   </p>
 
   <hr />
 
   <h2>When Insects Do Matter</h2>
 
-  <p>Insect treatment is appropriate only when clear signs are present, such as:</p>
+  <p>Insect treatment is only appropriate when clear signs are found, such as:</p>
 
   <ul>
-    <li>Carpenter ants</li>
-    <li>Carpenter bees</li>
-    <li>Termites</li>
+    <li><strong>Carpenter ants</strong></li>
+    <li><strong>Carpenter bees</strong></li>
+    <li><strong>Termites</strong></li>
   </ul>
 
   <p>
-    If insects are confirmed, address them in addition to repairing damage and excluding birds.
+    If insects are present, <strong>treat them</strong> in addition to repairing damage and excluding birds.
   </p>
-
+</section>
   </section>
 </main>
 

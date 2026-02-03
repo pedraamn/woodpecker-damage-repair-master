@@ -64,6 +64,89 @@ tbody tr:last-child td{border-bottom:none}
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .table-scroll table{min-width:720px}
 }
+
+/* -----------------------
+   CONTACT FORM (match first block)
+----------------------- */
+.form-grid{
+  margin-top:14px;
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr 320px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .form-grid{grid-template-columns:1fr}
+}
+
+.embed-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  background:var(--soft);
+}
+
+.nx-center{
+  display:flex;
+  justify-content:center; /* keep the small iframe centered */
+}
+
+/* Keep Networx at the required embedded size */
+#nx_form{
+  width:242px;
+  height:375px;
+}
+
+/* Force iframe to fill the fixed-size container */
+#networx_form_container iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+/* -----------------------
+   WHY BOX (match first block)
+----------------------- */
+.why-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 10px 24px rgba(17,24,39,0.05);
+}
+.why-box h3{
+  margin:0 0 10px;
+  font-size:15px;
+}
+.why-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.why-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:13px;
+}
+.tick{
+  width:18px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(22,163,74,0.12);
+  border:1px solid rgba(22,163,74,0.22);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.tick:before{
+  content:"✓";
+  font-weight:900;
+  font-size:12px;
+}
   </style>
 </head>
 <body>
@@ -87,7 +170,7 @@ tbody tr:last-child td{border-bottom:none}
       <img src="/woodpecker-damage-epoxy-repair.jpg" alt="Woodpecker damage epoxy repair" loading="lazy" />
     </div>
     <h2>How Much Does Woodpecker Damage Repair Cost?</h2>
-<p>Woodpecker damage repair costs  typically range between <strong>$300</strong> and <strong>$800</strong>, depending on how many holes need repair and how accessible the damaged areas are. Local labor rates and finish matching requirements can also influence the final price.</p>
+<p>Homeowners  usually pay between <strong>$300</strong> and <strong>$800</strong> for woodpecker damage repair, depending on scope and repair complexity. Factors like ladder access, material condition, and finish blending can affect pricing.</p>
 <section>
   <h2>Woodpecker Damage Repair Cost Ranges (Most Common Repairs)</h2>
   <div class="table-scroll">
@@ -103,42 +186,42 @@ tbody tr:last-child td{border-bottom:none}
         <tr>
           <td>Small hole repair (up to ~2")</td>
           <td>$150–$350</td>
-          <td>Clean-out, epoxy patch/plug, seal, spot finish</td>
+          <td>Debris removal, epoxy plugging, sealing, and touch-up work</td>
         </tr>
         <tr>
           <td>Medium hole repair (~2–6")</td>
           <td>$300–$800</td>
-          <td>Deeper patch/plug, sealing, finish blending</td>
+          <td>Deeper cavity filling, weather sealing, and finish blending</td>
         </tr>
         <tr>
           <td>Large hole repair (over ~6")</td>
           <td>$600–$1,500</td>
-          <td>Section rebuild or partial replacement, sealing, finish</td>
+          <td>Section reconstruction, partial board swap, sealing, and finish</td>
         </tr>
         <tr>
           <td>Replace a damaged siding board / small area</td>
           <td>$500–$2,500</td>
-          <td>Remove/replace material, water management, finish match</td>
+          <td>Removing old material, water barrier checks, and finish matching</td>
         </tr>
         <tr>
           <td>Structural repair (sheathing/stud/insulation affected)</td>
           <td>$1,000–$3,500+</td>
-          <td>Open-up, replace damaged wood, restore weather barrier</td>
+          <td>Opening the wall, replacing framing wood, and restoring barriers</td>
         </tr>
         <tr>
           <td>Interior wall repair (if penetrated)</td>
           <td>$250–$900</td>
-          <td>Drywall patch, texture match, paint</td>
+          <td>Drywall patching, matching the texture, and painting</td>
         </tr>
         <tr>
           <td>Paint/stain blending (separate line item)</td>
           <td>$150–$600</td>
-          <td>Prime + blend to hide repair</td>
+          <td>Base priming + blending to conceal the repair work</td>
         </tr>
         <tr>
           <td>High access work (2nd story / steep roofline)</td>
           <td>+15% to +50%</td>
-          <td>Setup time, safety, ladders or lift</td>
+          <td>Setup time, safety protocols, and ladder or lift fees</td>
         </tr>
       </tbody>
     </table>
@@ -191,27 +274,27 @@ tbody tr:last-child td{border-bottom:none}
         <tr>
           <td>Wood lap siding</td>
           <td>$300–$3,000</td>
-          <td>Finish matching + moisture protection are labor-heavy</td>
+          <td>Color matching + moisture sealing are labor-intensive</td>
         </tr>
         <tr>
           <td>Cedar shake</td>
           <td>$500–$4,000</td>
-          <td>Individual shake replacement + blend pattern/aging</td>
+          <td>Individual shake swaps + blending with aged patterns</td>
         </tr>
         <tr>
           <td>Vinyl siding</td>
           <td>$250–$2,000</td>
-          <td>Often panel replacement; color matching varies by age</td>
+          <td>Often requires panel replacement; color match depends on age</td>
         </tr>
         <tr>
           <td>Fiber cement</td>
           <td>$500–$3,500</td>
-          <td>Cutting/fastening + repainting required</td>
+          <td>Cutting/fastening + full repainting is usually necessary</td>
         </tr>
         <tr>
           <td>Stucco</td>
           <td>$800–$4,500</td>
-          <td>Multi-step patch + texture matching</td>
+          <td>Multi-stage patch application + texture matching</td>
         </tr>
       </tbody>
     </table>
@@ -222,11 +305,11 @@ tbody tr:last-child td{border-bottom:none}
   <h2>What Increases Woodpecker Repair Costs</h2>
 
   <ul>
-    <li><strong>Hidden moisture:</strong> swelling, rot, or stained sheathing behind siding</li>
-    <li><strong>Hole depth:</strong> penetration into cavity or insulation triggers bigger scope</li>
-    <li><strong>Repeat targeting:</strong> multiple boards or corners need repair + protection</li>
-    <li><strong>Access:</strong> second story, roofline, chimney, steep grade</li>
-    <li><strong>Finish matching:</strong> older paint/stain requires blending, not just patching</li>
+    <li><strong>Hidden moisture:</strong> swelling, rot, or damp sheathing behind the siding</li>
+    <li><strong>Hole depth:</strong> penetration into the cavity or insulation expands the scope</li>
+    <li><strong>Repeat targeting:</strong> multiple boards or corners needing repair + exclusion</li>
+    <li><strong>Access:</strong> second story, roofline, chimneys, or steep grades</li>
+    <li><strong>Finish matching:</strong> aged paint/stain requires blending, not just a patch</li>
   </ul>
 
   <hr />
@@ -257,7 +340,7 @@ tbody tr:last-child td{border-bottom:none}
   <h2>Prevention Costs (Avoid Paying Twice)</h2>
 
   <p>
-    Repairs alone often get hit again. Physical exclusion is what consistently stops repeat damage.
+    Standard repairs often get targeted again. Physical exclusion is what actually stops repeat damage.
   </p>
 
   <div class="table-scroll">
@@ -273,27 +356,27 @@ tbody tr:last-child td{border-bottom:none}
         <tr>
           <td>Bird netting over the target area</td>
           <td>$150–$800</td>
-          <td>Repeat pecking zones on siding walls</td>
+          <td>Repeat pecking zones on flat siding walls</td>
         </tr>
         <tr>
           <td>Hardware cloth / barrier panels</td>
           <td>$150–$900</td>
-          <td>Corners, fascia, trim boards that get repeatedly hit</td>
+          <td>Corners, fascia, and trim boards hit repeatedly</td>
         </tr>
         <tr>
           <td>Metal flashing / corner protection</td>
           <td>$200–$1,000</td>
-          <td>High-impact edges and roofline zones</td>
+          <td>High-impact edges and steep roofline zones</td>
         </tr>
         <tr>
           <td>Professional wildlife exclusion / control</td>
           <td>$300–$1,500</td>
-          <td>Persistent activity or nesting attempts</td>
+          <td>Ongoing activity or nesting attempts</td>
         </tr>
         <tr>
           <td>Visual deterrents (tape/decoys)</td>
           <td>$20–$150</td>
-          <td>Short-term support only (not a primary fix)</td>
+          <td>Short-term support only (not a standalone fix)</td>
         </tr>
       </tbody>
     </table>
@@ -317,9 +400,9 @@ tbody tr:last-child td{border-bottom:none}
   <h2>Woodpecker Damage Insurance Coverage (Common Reality)</h2>
 
   <p>
-    Home insurance may cover woodpecker damage depending on the policy and exclusions. Coverage is more likely when
-    damage is sudden and not tied to neglect. Document the damage immediately and ask whether animal-related exterior
-    damage is covered.
+    Home insurance might cover woodpecker damage based on your policy and exclusions. Coverage is more likely when
+    damage is sudden rather than gradual neglect. Document the damage at once and ask if animal-related exterior
+    damage is included.
   </p>
 </section>
 
