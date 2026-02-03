@@ -1512,7 +1512,6 @@ HOWTO_INNER = [
 <section>
   <h2>Step 1: Inspect the Damage (Repair vs Replace)</h2>
   <p>Before filling holes, determine how deep the damage goes.</p>
-
   <h3>You can usually repair if:</h3>
   <ul>
     <li>The wood is solid when probed</li>
