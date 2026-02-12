@@ -1623,22 +1623,6 @@ HOWTO_INNER = [
   <p>
     Reflective tape or streamers may help temporarily but are best used as a supplement, not a primary solution.
   </p>
-
-  <hr />
-
-  <h2>When Insects Do Matter</h2>
-
-  <p>Insect treatment is appropriate only when clear signs are present, such as:</p>
-
-  <ul>
-    <li>Carpenter ants</li>
-    <li>Carpenter bees</li>
-    <li>Termites</li>
-  </ul>
-
-  <p>
-    If insects are confirmed, address them in addition to repairing damage and excluding birds.
-  </p>
 """,
 """
 <section>
