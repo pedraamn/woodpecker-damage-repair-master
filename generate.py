@@ -103,7 +103,7 @@ class SiteConfig:
 
   # Identity
   base_name: str = "Woodpecker Damage Repair"
-  brand_name: str = "Woodpecker Damage Repair Company"
+  brand_name: str = "Woodpecker Damage Repair Experts"
 
   # CTA
   cta_text: str = "Get Free Estimate"
