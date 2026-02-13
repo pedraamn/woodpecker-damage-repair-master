@@ -12,7 +12,7 @@
   --shadow:0 10px 30px rgba(17,24,39,.06); --shadow2:0 10px 24px rgba(17,24,39,.08);
 }
 *{box-sizing:border-box}
-html,body{max-width:100%;overflow-x:hidden}
+html,body{max-width:100%;overflow-x:clip;}
 body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);line-height:1.6}
 a{color:inherit}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(250,250,249,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
@@ -30,7 +30,7 @@ header{border-bottom:1px solid var(--line);background:radial-gradient(1200px 380
 .sub{margin:0;color:var(--muted);max-width:78ch;font-size:14px}
 main{max-width:var(--max);margin:0 auto;padding:22px 18px 46px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);max-width:100%}
-.img{margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft);box-shadow:var(--shadow2);width:100%}
+.img{margin-top:14px;margin-bottom:16px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--soft);box-shadow:var(--shadow2);width:100%}
 .img img{display:block;width:100%;height:auto}
 @media (min-width:900px){.img{max-width:50%;margin-left:auto;margin-right:auto}}
 h2{margin:18px 0 8px;font-size:16px;letter-spacing:-.01em}
@@ -152,7 +152,7 @@ tbody tr:last-child td{border-bottom:none}
 <body>
   <div class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="/">Woodpecker Damage Repair Company</a>
+      <a class="brand" href="/">Woodpecker Damage Repair Experts</a>
       <nav class="nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/cost/">Cost</a><a href="/how-to/" aria-current="page">How-To</a><a class="btn" href="/contact/">Get Free Estimate</a></nav>
     </div>
   </div>
@@ -285,29 +285,12 @@ tbody tr:last-child td{border-bottom:none}
     Reflective tape or streamers may help temporarily but are best used as a supplement, not a primary solution.
   </p>
 
-  <hr />
-
-  <h2>When Insects Do Matter</h2>
-
-  <p>Insect treatment is appropriate only when clear signs are present, such as:</p>
-
-  <ul>
-    <li>Carpenter ants</li>
-    <li>Carpenter bees</li>
-    <li>Termites</li>
-  </ul>
-
-  <p>
-    If insects are confirmed, address them in addition to repairing damage and excluding birds.
-  </p>
-
   </section>
 </main>
 
 <footer>
   <div class="footer-inner">
     
-    <h2>Next steps</h2>
     <p class="sub">Ready to move forward? Request a free quote.</p>
     <div>
       <a class="btn" href="/contact/">Get Free Estimate</a>
@@ -315,7 +298,7 @@ tbody tr:last-child td{border-bottom:none}
     <div class="footer-links">
       <a href="/">Home</a><a href="/cost/">Cost</a><a href="/how-to/">How-To</a>
     </div>
-    <div class="small">© Woodpecker Damage Repair Company. All rights reserved.</div>
+    <div class="small">© Woodpecker Damage Repair Experts. All rights reserved.</div>
   </div>
 </footer>
 </body>
