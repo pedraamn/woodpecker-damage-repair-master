@@ -652,7 +652,8 @@ def linkify_curly(text: str, *, home_href: str) -> str:
 
 Mode = str  # "regular" | "cost" | "state" | "subdomain" | "regular_city_only"
 
-SITE_ORIGIN = (os.environ.get("SITE_ORIGIN") or "").rstrip("/")
+CLI_SITE_ORIGIN = sys.argv[2] if len(sys.argv) > 2 else ""
+SITE_ORIGIN = (CLI_SITE_ORIGIN or os.environ.get("SITE_ORIGIN") or "").rstrip("/")
 SUBDOMAIN_BASE = (os.environ.get("SUBDOMAIN_BASE") or "").strip().lower().strip(".")
 
 
@@ -1635,7 +1636,7 @@ def main() -> None:
   reset_output_dir(out)
   copy_site_image(src_dir=here, out_dir=out, filename=CONFIG.image_filename)
 
-  if SITE_MODE == "regular":
+  if SITE_MODE == "regular":  
     build_regular(out=out)
   elif SITE_MODE == "cost":
     build_cost(out=out)
