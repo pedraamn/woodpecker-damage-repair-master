@@ -1630,6 +1630,7 @@ if SITE_MODE not in VALID_MODES:
   )
 
 def main() -> None:
+  print(SITE_ORIGIN)
   here = Path(__file__).resolve().parent
   out = here / CONFIG.output_dir
 
