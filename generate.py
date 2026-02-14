@@ -591,6 +591,12 @@ def slugify(s: str) -> str:
   s = re.sub(r"-{2,}", "-", s).strip("-")
   return s
 
+def cost_slug() -> str:
+  return slugify(CONFIG.cost_title)
+
+def howto_slug() -> str:
+  return slugify(CONFIG.howto_title)
+
 def filename_to_alt(filename: str) -> str:
   if not filename:
     return ""
@@ -644,10 +650,6 @@ def linkify_curly(text: str, *, home_href: str) -> str:
     last = m.end()
   parts.append(esc(text[last:]))
   return "".join(parts)
-
-def linkify_title(title: str) -> str:
-  words = title.lower().split(" ")
-  return ("-").join(words)
 
 
 
@@ -739,10 +741,12 @@ def href_state(mode: Mode, st: str) -> str:
   return f"/{slugify(st)}/"
 
 def href_cost_index(mode: Mode) -> str:
-  return (SITE_ORIGIN + "/cost/") if (mode == "subdomain" and SITE_ORIGIN) else "/cost/"
+  p = f"/{cost_slug()}/"
+  return (SITE_ORIGIN + p) if (mode == "subdomain" and SITE_ORIGIN) else p
 
 def href_howto_index(mode: Mode) -> str:
-  return (SITE_ORIGIN + "/how-to/") if (mode == "subdomain" and SITE_ORIGIN) else "/how-to/"
+  p = f"/{howto_slug()}/"
+  return (SITE_ORIGIN + p) if (mode == "subdomain" and SITE_ORIGIN) else p
 
 def href_contact(mode: Mode) -> str:
   return (SITE_ORIGIN + "/contact/") if (mode == "subdomain" and SITE_ORIGIN) else "/contact/"
@@ -1286,7 +1290,7 @@ def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
   return make_page(
     mode=mode,
     h1=CONFIG.cost_title,
-    canonical=f"/{linkify_title(CONFIG.cost_title)}/",
+    canonical=f"/{cost_slug()}/",
     nav_key="cost",
     sub=CONFIG.cost_sub,
     inner=inner,
@@ -1334,7 +1338,7 @@ def howto_page_html(*, mode: Mode) -> str:
   return make_page(
     mode=mode,
     h1=CONFIG.howto_title,
-    canonical=f"/{linkify_title(CONFIG.howto_title)}/",
+    canonical=f"/{cost_slug()}/",
     nav_key="howto",
     sub=CONFIG.howto_sub,
     inner=inner,
@@ -1464,12 +1468,12 @@ def build_common(*, out: Path, mode: Mode) -> list[str]:
   urls: list[str] = ["/"]
 
   if feature(mode, "cost"):
-    write_text(out / "cost" / "index.html", cost_page_html(mode=mode, include_city_index=(mode == "cost")))
-    urls.append("/cost/")
+    write_text(out / cost_slug() / "index.html", cost_page_html(mode=mode, include_city_index=(mode == "cost")))
+    urls.append(f"/{cost_slug()}/")
 
   if feature(mode, "howto"):
-    write_text(out / "how-to" / "index.html", howto_page_html(mode=mode))
-    urls.append("/how-to/")
+    write_text(out / howto_slug() / "index.html", howto_page_html(mode=mode))
+    urls.append(f"/{howto_slug()}/")
 
   if feature(mode, "contact"):
     write_text(out / "contact" / "index.html", contact_page_html(mode=mode))
