@@ -645,6 +645,11 @@ def linkify_curly(text: str, *, home_href: str) -> str:
   parts.append(esc(text[last:]))
   return "".join(parts)
 
+def linkify_title(title: str) -> str:
+  words = title.lower().split(" ")
+  return ("-").join(words)
+
+
 
 # ============================================================
 # MODE + URLS
@@ -1281,7 +1286,7 @@ def cost_page_html(*, mode: Mode, include_city_index: bool) -> str:
   return make_page(
     mode=mode,
     h1=CONFIG.cost_title,
-    canonical="/cost/",
+    canonical=f"/{linkify_title(CONFIG.cost_title)}/",
     nav_key="cost",
     sub=CONFIG.cost_sub,
     inner=inner,
@@ -1329,7 +1334,7 @@ def howto_page_html(*, mode: Mode) -> str:
   return make_page(
     mode=mode,
     h1=CONFIG.howto_title,
-    canonical="/how-to/",
+    canonical=f"/{linkify_title(CONFIG.howto_title)}/",
     nav_key="howto",
     sub=CONFIG.howto_sub,
     inner=inner,
