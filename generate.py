@@ -1422,8 +1422,9 @@ def state_page_html(*, mode: Mode, st: str, cities: list[CityWithCol]) -> str:
 # ROBOTS + SITEMAP + WRANGLER
 # ============================================================
 
-def robots_txt() -> str:
-  return "User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n"
+def robots_txt(*, mode: Mode) -> str:
+  sm = canonical_for(mode, "/sitemap.xml")
+  return f"User-agent: *\nAllow: /\nSitemap: {sm}\n"
 
 def sitemap_xml(urls: list[str]) -> str:
   return (
@@ -1482,7 +1483,7 @@ def build_regular(*, out: Path) -> None:
     write_text(out / slug / "index.html", city_page_html(mode=mode, city=city, st=st, col=col, canonical=f"/{slug}/"))
     urls.append(f"/{slug}/")
 
-  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "robots.txt", robots_txt(mode=mode))
   write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ regular: Generated {len(urls)} pages into: {out.resolve()}")
@@ -1505,7 +1506,7 @@ def build_cost(*, out: Path) -> None:
     write_text(out / "cost" / slug / "index.html", cost_city_page_html(mode=mode, city=city, st=st, col=col))
     urls.append(f"/cost/{slug}/")
 
-  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "robots.txt", robots_txt(mode=mode))
   write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ cost: Generated {len(urls)} pages into: {out.resolve()}")
@@ -1530,7 +1531,7 @@ def build_state(*, out: Path) -> None:
       )
       urls.append(f"/{slugify(st)}/{slugify(city)}/")
 
-  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "robots.txt", robots_txt(mode=mode))
   write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ state: Generated {len(urls)} pages into: {out.resolve()}")
@@ -1564,7 +1565,7 @@ def build_subdomain(*, out: Path) -> None:
     )
     urls.append(city_origin)
 
-  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "robots.txt", robots_txt(mode=mode))
   write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ subdomain: Generated {len(urls)} pages into: {out.resolve()}")
@@ -1608,7 +1609,7 @@ def build_regular_city_only(*, out: Path) -> None:
     )
     urls.append(f"/{slug}/")
 
-  write_text(out / "robots.txt", robots_txt())
+  write_text(out / "robots.txt", robots_txt(mode=mode))
   write_text(out / "sitemap.xml", sitemap_xml([canonical_for(mode, u) for u in urls]))
   write_text(Path(__file__).resolve().parent / "wrangler.jsonc", wrangler_content())
   print(f"✅ regular_city_only: Generated {len(urls)} pages into: {out.resolve()}")
