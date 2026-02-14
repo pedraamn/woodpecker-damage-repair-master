@@ -968,7 +968,6 @@ def header_block(*, h1: str, sub: str) -> str:
 <header>
   <div class="hero">
     <h1>{esc(h1)}</h1>
-    <p class="sub">{esc(sub)}</p>
   </div>
 </header>
 """.rstrip()
@@ -1651,10 +1650,6 @@ def main() -> None:
 
 if __name__ == "__main__":
   main()
-
-
-
-
 
 
 
